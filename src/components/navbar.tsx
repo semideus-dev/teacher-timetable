@@ -40,7 +40,7 @@ export function Navbar() {
                 LKC Timetable
               </span>
               <span className="text-xs text-slate-600">
-                by Manpreet Singh Lehal
+                by Computer Science Dept.
               </span>
             </div>
           </Link>
