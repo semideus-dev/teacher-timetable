@@ -17,15 +17,25 @@ interface TimetableEntry {
 }
 
 const LECTURE_SLOTS = [
-  "Lect-1 (9:00-9:45)",
-  "Lect-2 (9:45-10:30)",
-  "Lect-3 (10:30-11:15)",
-  "Lect-4 (11:15-12:00)",
-  "Lect-5 (12:00-12:45)",
-  "Lect-6 (12:45-1:30)",
-  "Lect-7 (1:30-2:15)",
-  "Lect-8 (2:15-3:00)",
+  "lect-1_(9:00-9:45)",
+  "lect-2_(9:45-10:30)",
+  "lect-3_(10:30-11:15)",
+  "lect-4_(11:15-12:00)",
+  "lect-5_(12:00-12:45)",
+  "lect-6_(12:45-1:30)",
+  "lect-7_(1:30-2:15)",
+  "lect-8_(2:15-3:00)",
 ];
+
+// Normalize lecture slot format for display
+function formatLectureSlot(slot: string): string {
+  // Convert "lect-1_(9:00-9:45)" to "Lecture 1 (9:00-9:45)"
+  const match = slot.match(/lect-(\d+)_\((.+)\)/);
+  if (match) {
+    return `Lecture ${match[1]} (${match[2]})`;
+  }
+  return slot;
+}
 
 const DAYS = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
@@ -100,9 +110,9 @@ export default function TimetablePage() {
         <div className="overflow-x-auto">
           <div className="min-w-max rounded-2xl border border-slate-200/50 bg-white shadow-2xl overflow-hidden">
             {/* Header with Days */}
-            <div className="grid grid-cols-[160px_repeat(6,minmax(160px,1fr))] border-b border-slate-200 bg-linear-to-r from-blue-700 via-blue-600 to-blue-500">
-              <div className="px-4 py-4 text-sm font-bold text-white border-r border-blue-400/30 flex items-center gap-2">
-                <Clock className="h-5 w-5" />
+            <div className="grid grid-cols-[100px_repeat(6,200px)] border-b border-slate-200 bg-linear-to-r from-blue-700 via-blue-600 to-blue-500">
+              <div className="px-2 py-4 text-xs font-bold text-white border-r border-blue-400/30 flex items-center gap-1.5">
+                <Clock className="h-4 w-4" />
                 Time Slot
               </div>
               {DAYS.map((day, index) => (
@@ -119,6 +129,7 @@ export default function TimetablePage() {
 
             {/* Time Slots */}
             {LECTURE_SLOTS.map((slot, slotIndex) => {
+              const formattedSlot = formatLectureSlot(slot);
               const timeRange = slot.match(/\((.+)\)/)?.[1] || "";
               const colors = [
                 {
@@ -174,14 +185,14 @@ export default function TimetablePage() {
               return (
                 <div
                   key={slot}
-                  className="grid grid-cols-[160px_repeat(6,minmax(160px,1fr))] border-b border-slate-200/80 last:border-b-0 min-h-[120px]"
+                  className="grid grid-cols-[100px_repeat(6,200px)] border-b border-slate-200/80 last:border-b-0 min-h-[120px]"
                 >
                   {/* Time Column */}
-                  <div className="px-4 py-4 border-r border-slate-200 bg-linear-to-br from-slate-50 to-blue-50/30 flex flex-col justify-center">
-                    <div className="text-sm font-bold text-slate-700">
-                      {`Lecture ${slotIndex + 1}`}
+                  <div className="px-2 py-4 border-r border-slate-200 bg-linear-to-br from-slate-50 to-blue-50/30 flex flex-col justify-center">
+                    <div className="text-xs font-bold text-slate-700">
+                      Lec {slotIndex + 1}
                     </div>
-                    <div className="text-xs text-slate-500 mt-1 font-semibold">
+                    <div className="text-[10px] text-slate-500 mt-0.5 font-semibold">
                       {timeRange}
                     </div>
                   </div>
@@ -320,7 +331,9 @@ export default function TimetablePage() {
                   className={`mb-4 flex items-center gap-3 bg-linear-to-r ${color.bg} text-white p-3 rounded-lg shadow-md`}
                 >
                   <Clock className="h-5 w-5" />
-                  <span className="font-bold text-sm">{slot}</span>
+                  <span className="font-bold text-sm">
+                    {formatLectureSlot(slot)}
+                  </span>
                 </div>
                 <div className="space-y-3">
                   <div className="bg-white rounded-lg p-3 shadow-sm">

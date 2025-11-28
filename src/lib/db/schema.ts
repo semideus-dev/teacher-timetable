@@ -5,6 +5,7 @@ import {
   text,
   timestamp,
   uuid,
+  integer,
 } from "drizzle-orm/pg-core";
 
 export const role = pgEnum("role", ["USER", "ADMIN"]);
@@ -18,10 +19,10 @@ export const user = pgTable("user", {
     .notNull(),
   image: text("image"),
   createdAt: timestamp("created_at")
-    .$defaultFn(() => /* @__PURE__ */ new Date())
+    .$defaultFn(() => new Date())
     .notNull(),
   updatedAt: timestamp("updated_at")
-    .$defaultFn(() => /* @__PURE__ */ new Date())
+    .$defaultFn(() => new Date())
     .notNull(),
   role: role("role")
     .$defaultFn(() => "USER")
@@ -64,19 +65,15 @@ export const verification = pgTable("verification", {
   identifier: text("identifier").notNull(),
   value: text("value").notNull(),
   expiresAt: timestamp("expires_at").notNull(),
-  createdAt: timestamp("created_at").$defaultFn(
-    () => /* @__PURE__ */ new Date()
-  ),
-  updatedAt: timestamp("updated_at").$defaultFn(
-    () => /* @__PURE__ */ new Date()
-  ),
+  createdAt: timestamp("created_at").$defaultFn(() => new Date()),
+  updatedAt: timestamp("updated_at").$defaultFn(() => new Date()),
 });
-
 
 // Timetable related tables
 export const program = pgTable("program", {
   id: uuid("id").primaryKey().defaultRandom(),
   name: text("name").notNull().unique(),
+  entriesCount: integer("entries_count"),
   createdAt: timestamp("created_at")
     .$defaultFn(() => new Date())
     .notNull(),
@@ -131,7 +128,7 @@ export const timetableEntry = pgTable("timetable_entry", {
     onDelete: "set null",
   }),
   roomId: uuid("room_id").references(() => room.id, { onDelete: "set null" }),
-  lectureSlot: text("lecture_slot").notNull(), // e.g., "Lect-1 (9:00-9:45)"
+  lectureSlot: text("lecture_slot").notNull(), // e.g., "lect-1_(9:00-9:45)"
   dayRange: text("day_range"), // e.g., "(1-6)" or "(1-3)"
   createdAt: timestamp("created_at")
     .$defaultFn(() => new Date())
@@ -140,5 +137,3 @@ export const timetableEntry = pgTable("timetable_entry", {
     .$defaultFn(() => new Date())
     .notNull(),
 });
-
-// Authentication tables
