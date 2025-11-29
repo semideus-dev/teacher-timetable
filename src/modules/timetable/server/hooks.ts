@@ -106,6 +106,7 @@ export async function getTimetableByTeacher(teacherId: string) {
     .where(eq(timetableEntry.teacherId, teacherId))
     .leftJoin(program, eq(timetableEntry.programId, program.id))
     .leftJoin(subject, eq(timetableEntry.subjectId, subject.id))
+    .leftJoin(teacher, eq(timetableEntry.teacherId, teacher.id))
     .leftJoin(room, eq(timetableEntry.roomId, room.id));
 }
 

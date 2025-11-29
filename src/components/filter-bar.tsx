@@ -45,7 +45,7 @@ export function FilterBar({
         <div className="relative flex-1">
           <Search className="absolute left-3 top-1/2 h-5 w-5 -translate-y-1/2 text-slate-400" />
           <Input
-            placeholder="Search programs, teachers, subjects..."
+            placeholder="Search by program..."
             className="pl-11 h-12 rounded-xl border-slate-300 focus:border-blue-400 focus:ring-blue-400/20"
             onChange={(e) => onSearchChange(e.target.value)}
           />

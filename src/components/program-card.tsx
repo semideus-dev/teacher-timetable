@@ -11,8 +11,8 @@ interface ProgramCardProps {
 export function ProgramCard({ program }: ProgramCardProps) {
   return (
     <Link href={`/timetable/${program.id}`}>
-      <div className="group cursor-pointer rounded-2xl border border-slate-200 bg-white p-6 transition-all hover:shadow-2xl hover:scale-[1.02] hover:border-blue-400 overflow-hidden relative">
-        <div className="absolute top-0 left-0 w-full h-1 bg-blue-600"></div>
+      <div className="group cursor-pointer rounded-2xl border border-b-4 border-b-blue-600 bg-white p-6 transition-all hover:shadow-2xl hover:scale-[1.02] hover:border-blue-600 overflow-hidden relative">
+        {/* <div className="absolute top-0 left-0 w-full h-1 bg-blue-600"></div> */}
         <div className="flex items-start justify-between">
           <div className="flex-1">
             <h3 className="text-xl font-bold text-slate-900 group-hover:text-blue-600 transition-colors">

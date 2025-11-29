@@ -209,54 +209,79 @@ export default function Home() {
                     </tr>
                   </thead>
                   <tbody>
-                    {LECTURE_SLOTS.map((slot, index) => {
-                      const entry = timetable?.find(
-                        (e: any) => e.lectureSlot === slot
-                      );
-                      if (!entry) return null;
+                    {LECTURE_SLOTS.map((slot, slotIndex) => {
+                      const entries =
+                        timetable?.filter((e: any) => e.lectureSlot === slot) ||
+                        [];
+                      if (entries.length === 0) return null;
+
                       return (
-                        <tr
-                          key={slot}
-                          className={`border-b border-slate-100 hover:bg-blue-50/30 transition-colors ${
-                            index % 2 === 0 ? "bg-slate-50/30" : "bg-white"
-                          }`}
-                        >
-                          <td className="px-4 py-4 text-sm font-bold text-slate-700">
-                            {formatLectureSlot(slot)}
-                          </td>
-                          <td className="px-4 py-4 text-sm font-semibold text-slate-900">
-                            {entry?.subject?.name || "-"}
-                          </td>
-                          <td className="px-4 py-4">
-                            <span className="text-xs font-bold text-white bg-blue-500 px-2.5 py-1 rounded-full">
-                              {entry?.subject?.code || "-"}
-                            </span>
-                          </td>
-                          <td className="px-4 py-4 text-sm font-medium text-slate-700">
-                            {showTeacherView
-                              ? entry?.program?.name || "-"
-                              : entry?.teacher?.name || "-"}
-                          </td>
-                          {!showRoomView && (
-                            <td className="px-4 py-4 text-sm font-medium text-slate-700">
-                              {entry?.room?.name || "-"}
+                        <>
+                          {/* Lecture slot header row */}
+                          <tr
+                            key={`${slot}-header`}
+                            className="bg-slate-100 border-t-2 border-slate-300"
+                          >
+                            <td
+                              colSpan={showRoomView ? 5 : 6}
+                              className="px-4 py-3"
+                            >
+                              <div className="flex items-center gap-2">
+                                <Clock className="h-4 w-4 text-blue-600" />
+                                <span className="text-sm font-bold text-slate-800">
+                                  {formatLectureSlot(slot)}
+                                </span>
+                                <span className="ml-auto text-xs text-slate-600 font-medium">
+                                  {entries.length}{" "}
+                                  {entries.length === 1 ? "class" : "classes"}
+                                </span>
+                              </div>
                             </td>
-                          )}
-                          <td className="px-4 py-4">
-                            <div className="flex flex-wrap gap-1.5">
-                              {parseDayRange(entry?.dayRange || null).map(
-                                (day) => (
-                                  <span
-                                    key={day}
-                                    className="rounded-lg bg-blue-600 px-2.5 py-1 text-xs font-bold text-white shadow-sm"
-                                  >
-                                    {day}
-                                  </span>
-                                )
+                          </tr>
+                          {/* Entries for this slot */}
+                          {entries.map((entry: any, entryIndex: number) => (
+                            <tr
+                              key={`${slot}-${entryIndex}`}
+                              className="border-b border-slate-100 hover:bg-blue-50/30 transition-colors bg-white"
+                            >
+                              <td className="px-4 py-3 text-xs text-slate-500 font-medium w-32">
+                                {/* Empty cell for alignment */}
+                              </td>
+                              <td className="px-4 py-3 text-sm font-semibold text-slate-900">
+                                {entry?.subject?.name || "-"}
+                              </td>
+                              <td className="px-4 py-3">
+                                <span className="text-xs font-bold text-white bg-blue-500 px-2.5 py-1 rounded-full">
+                                  {entry?.subject?.code || "-"}
+                                </span>
+                              </td>
+                              <td className="px-4 py-3 text-sm font-medium text-slate-700">
+                                {showTeacherView
+                                  ? entry?.program?.name || "-"
+                                  : entry?.teacher?.name || "-"}
+                              </td>
+                              {!showRoomView && (
+                                <td className="px-4 py-3 text-sm font-medium text-slate-700">
+                                  {entry?.room?.name || "-"}
+                                </td>
                               )}
-                            </div>
-                          </td>
-                        </tr>
+                              <td className="px-4 py-3">
+                                <div className="flex flex-wrap gap-1.5">
+                                  {parseDayRange(entry?.dayRange || null).map(
+                                    (day) => (
+                                      <span
+                                        key={day}
+                                        className="rounded-lg bg-blue-600 px-2.5 py-1 text-xs font-bold text-white shadow-sm"
+                                      >
+                                        {day}
+                                      </span>
+                                    )
+                                  )}
+                                </div>
+                              </td>
+                            </tr>
+                          ))}
+                        </>
                       );
                     })}
                   </tbody>
@@ -264,89 +289,90 @@ export default function Home() {
               </div>
 
               {/* Mobile Card View */}
-              <div className="lg:hidden space-y-4">
+              <div className="lg:hidden space-y-6">
                 {LECTURE_SLOTS.map((slot, index) => {
-                  const entry = timetable?.find(
-                    (e: any) => e.lectureSlot === slot
-                  );
-                  if (!entry?.subject) return null;
-
-                  const colors = [
-                    "from-blue-600 to-blue-700",
-                    "from-blue-600 to-blue-700",
-                    "from-blue-600 to-blue-700",
-                    "from-blue-600 to-blue-700",
-                    "from-blue-600 to-blue-700",
-                    "from-blue-600 to-blue-700",
-                    "from-blue-600 to-blue-700",
-                    "from-blue-600 to-blue-700",
-                  ];
+                  const entries =
+                    timetable?.filter((e: any) => e.lectureSlot === slot) || [];
+                  if (entries.length === 0) return null;
 
                   return (
-                    <div
-                      key={slot}
-                      className="rounded-2xl border border-slate-200 bg-white p-5 shadow-lg hover:shadow-xl transition-all"
-                    >
-                      <div
-                        className={`mb-4 flex items-center gap-3 bg-linear-to-r ${
-                          colors[index % colors.length]
-                        } text-white p-3 rounded-xl shadow-md`}
-                      >
-                        <Clock className="h-5 w-5" />
-                        <span className="font-bold text-sm">
-                          {formatLectureSlot(slot)}
-                        </span>
-                      </div>
-                      <div className="space-y-3">
-                        <div className="bg-white rounded-xl p-3">
-                          <p className="text-base font-bold text-slate-800">
-                            {entry.subject?.name}
-                          </p>
-                          <p className="text-xs font-bold text-white bg-blue-600 px-3 py-1.5 rounded-md inline-block mt-2 shadow-sm">
-                            {entry.subject?.code}
-                          </p>
-                        </div>
-                        {showTeacherView
-                          ? entry.program && (
-                              <div className="flex items-center gap-3 bg-white p-2.5 rounded-xl">
-                                <div className="bg-blue-600 p-2 rounded-lg shadow">
-                                  <User className="h-4 w-4 text-white" />
-                                </div>
-                                <span className="font-semibold text-slate-800">
-                                  {entry.program.name}
-                                </span>
-                              </div>
-                            )
-                          : entry.teacher && (
-                              <div className="flex items-center gap-3 bg-white p-2.5 rounded-xl">
-                                <div className="bg-blue-600 p-2 rounded-lg shadow">
-                                  <User className="h-4 w-4 text-white" />
-                                </div>
-                                <span className="font-semibold text-slate-800">
-                                  {entry.teacher.name}
-                                </span>
-                              </div>
-                            )}
-                        {!showRoomView && entry.room && (
-                          <div className="flex items-center gap-3 bg-white p-2.5 rounded-xl">
-                            <div className="bg-blue-600 p-2 rounded-lg shadow">
-                              <MapPin className="h-4 w-4 text-white" />
-                            </div>
-                            <span className="font-semibold text-slate-800">
-                              {entry.room.name}
+                    <div key={slot} className="space-y-3">
+                      {/* Lecture Slot Header */}
+                      <div className="bg-slate-100 border-l-4 border-blue-600 p-4 rounded-lg shadow-md">
+                        <div className="flex items-center justify-between">
+                          <div className="flex items-center gap-2">
+                            <Clock className="h-5 w-5 text-blue-600" />
+                            <span className="font-bold text-slate-800">
+                              {formatLectureSlot(slot)}
                             </span>
                           </div>
-                        )}
-                        <div className="flex flex-wrap gap-2 pt-2">
-                          {parseDayRange(entry.dayRange).map((day) => (
-                            <span
-                              key={day}
-                              className="rounded-lg bg-blue-600 px-3 py-1.5 text-xs font-bold text-white shadow-md"
-                            >
-                              {day}
-                            </span>
-                          ))}
+                          <span className="text-xs text-slate-600 font-medium bg-white px-3 py-1 rounded-full">
+                            {entries.length}{" "}
+                            {entries.length === 1 ? "class" : "classes"}
+                          </span>
                         </div>
+                      </div>
+
+                      {/* Entries for this slot */}
+                      <div className="space-y-3 pl-2">
+                        {entries.map((entry: any, entryIndex: number) => (
+                          <div
+                            key={`${slot}-${entryIndex}`}
+                            className="rounded-xl border border-slate-200 bg-white p-4 shadow-md hover:shadow-lg transition-all"
+                          >
+                            <div className="space-y-3">
+                              <div className="bg-slate-50 rounded-lg p-3 border border-slate-200">
+                                <p className="text-sm font-bold text-slate-800">
+                                  {entry.subject?.name}
+                                </p>
+                                <p className="text-xs font-bold text-white bg-blue-600 px-2.5 py-1 rounded-md inline-block mt-1.5 shadow-sm">
+                                  {entry.subject?.code}
+                                </p>
+                              </div>
+                              {showTeacherView
+                                ? entry.program && (
+                                    <div className="flex items-center gap-2 bg-slate-50 p-2.5 rounded-lg border border-slate-200">
+                                      <div className="bg-blue-600 p-1.5 rounded-lg shadow">
+                                        <User className="h-3.5 w-3.5 text-white" />
+                                      </div>
+                                      <span className="font-semibold text-slate-800 text-sm">
+                                        {entry.program.name}
+                                      </span>
+                                    </div>
+                                  )
+                                : entry.teacher && (
+                                    <div className="flex items-center gap-2 bg-slate-50 p-2.5 rounded-lg border border-slate-200">
+                                      <div className="bg-blue-600 p-1.5 rounded-lg shadow">
+                                        <User className="h-3.5 w-3.5 text-white" />
+                                      </div>
+                                      <span className="font-semibold text-slate-800 text-sm">
+                                        {entry.teacher.name}
+                                      </span>
+                                    </div>
+                                  )}
+                              {!showRoomView && entry.room && (
+                                <div className="flex items-center gap-2 bg-slate-50 p-2.5 rounded-lg border border-slate-200">
+                                  <div className="bg-blue-600 p-1.5 rounded-lg shadow">
+                                    <MapPin className="h-3.5 w-3.5 text-white" />
+                                  </div>
+                                  <span className="font-semibold text-slate-800 text-sm">
+                                    {entry.room.name}
+                                  </span>
+                                </div>
+                              )}
+                              <div className="flex flex-wrap gap-1.5">
+                                {parseDayRange(entry.dayRange).map((day) => (
+                                  <span
+                                    key={day}
+                                    className="rounded-lg bg-blue-600 px-2.5 py-1 text-xs font-bold text-white shadow-sm"
+                                  >
+                                    {day}
+                                  </span>
+                                ))}
+                              </div>
+                            </div>
+                          </div>
+                        ))}
                       </div>
                     </div>
                   );
