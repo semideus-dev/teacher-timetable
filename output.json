@@ -37,7 +37,7 @@
           "lect-5_(12:00-12:45)": "Dr. Sandeep Singh",
           "lect-6_(12:45-1:30)": "Navneet Kaur",
           "lect-7_(1:30-2:15)": "NEW-III",
-          "lect-8_(2:15-3:00)": "NEW-I/"
+          "lect-8_(2:15-3:00)": "NEW-I"
         },
         {
           "feild_name": "Room",
@@ -81,7 +81,7 @@
           "feild_name": "Room",
           "lect-2_(9:45-10:30)": "LAB-PT",
           "lect-3_(10:30-11:15)": "LAB-PT",
-          "lect-7_(1:30-2:15)": "LAB-PT"
+          "lect-7_(1:30-2:15)": "LAB-I"
         },
         {
           "feild_name": "Day",
@@ -173,7 +173,7 @@
         },
         {
           "feild_name": "Room",
-          "lect-8_(2:15-3:00)": "LAB-SD"
+          "lect-8_(2:15-3:00)": "LAB-ANM"
         },
         {
           "feild_name": "Day",
@@ -300,8 +300,8 @@
         {
           "feild_name": "Teacher",
           "lect-1_(9:00-9:45)": "Monika",
-          "lect-3_(10:30-11:15)": "Rajat",
-          "lect-4_(11:15-12:00)": "Rajat",
+          "lect-3_(10:30-11:15)": "Rajat Kaur",
+          "lect-4_(11:15-12:00)": "Rajat Kaur",
           "lect-6_(12:45-1:30)": "Anjali",
           "lect-7_(1:30-2:15)": "Anjali"
         },
@@ -333,7 +333,7 @@
         },
         {
           "feild_name": "Teacher",
-          "lect-4_(11:15-12:00)": "Rajat",
+          "lect-4_(11:15-12:00)": "Rajat Kaur",
           "lect-7_(1:30-2:15)": "Rajat Kaur"
         },
         {
@@ -377,7 +377,7 @@
           "lect-2_(9:45-10:30)": "Anjali",
           "lect-3_(10:30-11:15)": "Monika",
           "lect-4_(11:15-12:00)": "Anjali",
-          "lect-5_(12:00-12:45)": "Rajat",
+          "lect-5_(12:00-12:45)": "Rajat Kaur",
           "lect-6_(12:45-1:30)": "Monika"
         },
         {
@@ -531,7 +531,7 @@
           "lect-1_(9:00-9:45)": "Drug Abuse",
           "lect-2_(9:45-10:30)": "NM",
           "lect-3_(10:30-11:15)": "Pbi",
-          "lect-4_(11:15-12:00)": "C",
+          "lect-4_(11:15-12:00)": "Programming in C",
           "lect-5_(12:00-12:45)": "ELECTRONICS",
           "lect-6_(12:45-1:30)": "C LAB",
           "lect-7_(1:30-2:15)": "C LAB"
@@ -563,8 +563,8 @@
           "lect-3_(10:30-11:15)": "R-NR3",
           "lect-4_(11:15-12:00)": "R-NR3",
           "lect-5_(12:00-12:45)": "R-NR3",
-          "lect-6_(12:45-1:30)": "Lab-SD",
-          "lect-7_(1:30-2:15)": "LAB-SD"
+          "lect-6_(12:45-1:30)": "LAB-I",
+          "lect-7_(1:30-2:15)": "LAB-I"
         },
         {
           "feild_name": "Day",
@@ -618,7 +618,7 @@
           "lect-3_(10:30-11:15)": "Pbi",
           "lect-4_(11:15-12:00)": "ELECTRONICS",
           "lect-5_(12:00-12:45)": "NM",
-          "lect-6_(12:45-1:30)": "C",
+          "lect-6_(12:45-1:30)": "Programming in C",
           "lect-7_(1:30-2:15)": "Comm. Skills"
         },
         {
@@ -839,7 +839,7 @@
         {
           "feild_name": "Teacher",
           "lect-3_(10:30-11:15)": "NEW-II",
-          "lect-5_(12:00-12:45)": "Rajat"
+          "lect-5_(12:00-12:45)": "Rajat Kaur"
         },
         {
           "feild_name": "Room",
@@ -1403,7 +1403,7 @@
           "feild_name": "Room",
           "lect-3_(10:30-11:15)": "R-43",
           "lect-5_(12:00-12:45)": "LAB-IV",
-          "lect-6_(12:45-1:30)": "LAB-I"
+          "lect-6_(12:45-1:30)": "LAB-V"
         },
         {
           "feild_name": "Day",
@@ -1425,7 +1425,7 @@
         },
         {
           "feild_name": "Room",
-          "lect-6_(12:45-1:30)": "LAB-I"
+          "lect-6_(12:45-1:30)": "LAB-V"
         },
         {
           "feild_name": "Day",
