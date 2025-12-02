@@ -8,7 +8,8 @@ import {
   useTeachers,
   useRooms,
 } from "@/modules/timetable/hooks/use-timetable";
-import { useState, useMemo } from "react";
+import { useState, useMemo, Fragment } from "react";
+import type { ReactNode } from "react";
 import { Loader2, Clock, User, MapPin, ArrowLeft } from "lucide-react";
 import { useQuery } from "@tanstack/react-query";
 import { Button } from "@/components/ui/button";
@@ -25,11 +26,19 @@ const LECTURE_SLOTS = [
 ];
 
 // Normalize lecture slot format for display
-function formatLectureSlot(slot: string): string {
-  // Convert "lect-1_(9:00-9:45)" to "Lecture 1 (9:00-9:45)"
+function formatLectureSlot(slot: string): ReactNode {
+  // Convert "lect-1_(9:00-9:45)" to:
+  // Lecture - 1
+  // (9:00-9:45)
   const match = slot.match(/lect-(\d+)_\((.+)\)/);
   if (match) {
-    return `Lecture ${match[1]} (${match[2]})`;
+    return (
+      <>
+        {`Lecture - ${match[1]}`}
+        <br />
+        {`(${match[2]})`}
+      </>
+    );
   }
   return slot;
 }
@@ -216,7 +225,7 @@ export default function Home() {
                       if (entries.length === 0) return null;
 
                       return (
-                        <>
+                        <Fragment key={slot}>
                           {/* Lecture slot header row */}
                           <tr
                             key={`${slot}-header`}
@@ -227,7 +236,7 @@ export default function Home() {
                               className="px-4 py-3"
                             >
                               <div className="flex items-center gap-2">
-                                <Clock className="h-4 w-4 text-blue-600" />
+                                <Clock className="h-5 w-5 text-blue-600" />
                                 <span className="text-sm font-bold text-slate-800">
                                   {formatLectureSlot(slot)}
                                 </span>
@@ -281,7 +290,7 @@ export default function Home() {
                               </td>
                             </tr>
                           ))}
-                        </>
+                        </Fragment>
                       );
                     })}
                   </tbody>
