@@ -234,18 +234,21 @@ async function seed() {
             null,
           ];
           const roomNames = roomName?.split("/").map((s) => s.trim()) || [null];
+          const dayRanges = dayRange?.split("/").map((s) => s.trim()) || [null];
 
           // Create entries for each combination
           const maxLength = Math.max(
             subjectCodes.length,
             teacherNames.length,
-            roomNames.length
+            roomNames.length,
+            dayRanges.length
           );
 
           for (let i = 0; i < maxLength; i++) {
             const code = subjectCodes[i] || subjectCodes[0];
             const tName = teacherNames[i] || teacherNames[0];
             const rName = roomNames[i] || roomNames[0];
+            const dRange = dayRanges[i] || dayRanges[0];
 
             const subjectId = code ? subjectMap.get(code) : undefined;
             const teacherId =
@@ -260,7 +263,7 @@ async function seed() {
               teacherId: teacherId || null,
               roomId: roomId || null,
               lectureSlot: slot,
-              dayRange: dayRange || null,
+              dayRange: dRange || null,
             });
 
             programEntries++;
