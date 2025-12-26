@@ -1,5 +1,28 @@
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
+## Progressive Web App (PWA)
+
+This application is a Progressive Web App and can be installed on mobile and desktop devices:
+
+### Features
+
+- **Installable**: Add to home screen on mobile devices or install as a desktop app
+- **Offline Support**: Service worker caching for offline functionality
+- **App-like Experience**: Runs in standalone mode without browser UI
+- **Optimized Icons**: Multiple icon sizes for different devices and platforms
+
+### Installation
+
+- **Mobile (iOS/Android)**: Tap the browser menu and select "Add to Home Screen" or "Install App"
+- **Desktop (Chrome/Edge)**: Click the install icon in the address bar or use the browser menu
+- **Desktop (Safari)**: Use File → Add to Dock
+
+### PWA Configuration
+
+- Manifest: `/public/manifest.json`
+- Icons: `/public/icon-*.png` (192x192, 256x256, 384x384, 512x512)
+- Service Worker: Auto-generated during production build
+
 ## Getting Started
 
 First, run the development server:

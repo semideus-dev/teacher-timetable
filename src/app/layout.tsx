@@ -19,6 +19,19 @@ export const metadata: Metadata = {
   title: "LKC Timetable",
   description:
     "See your college schedule instantly — simple, clear, and always organized.",
+  manifest: "/manifest.json",
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: "default",
+    title: "LKC Timetable",
+  },
+  icons: {
+    icon: [
+      { url: "/icon-192x192.png", sizes: "192x192", type: "image/png" },
+      { url: "/icon-512x512.png", sizes: "512x512", type: "image/png" },
+    ],
+    apple: [{ url: "/icon-192x192.png", sizes: "192x192", type: "image/png" }],
+  },
 };
 
 export default function RootLayout({
