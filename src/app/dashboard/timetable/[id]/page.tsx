@@ -89,71 +89,73 @@ export default function TimetablePage() {
         </div>
 
         {/* Desktop Table View */}
-        <div className="hidden lg:block overflow-x-auto rounded-lg border border-slate-200 bg-white">
-          <table className="w-full">
-            <thead>
-              <tr className="border-b border-slate-200 bg-slate-50">
-                <th className="px-4 py-3 text-left text-sm font-semibold text-slate-900">
-                  Time
-                </th>
-                <th className="px-4 py-3 text-left text-sm font-semibold text-slate-900">
-                  Subject
-                </th>
-                <th className="px-4 py-3 text-left text-sm font-semibold text-slate-900">
-                  Code
-                </th>
-                <th className="px-4 py-3 text-left text-sm font-semibold text-slate-900">
-                  Teacher
-                </th>
-                <th className="px-4 py-3 text-left text-sm font-semibold text-slate-900">
-                  Room
-                </th>
-                <th className="px-4 py-3 text-left text-sm font-semibold text-slate-900">
-                  Days
-                </th>
-              </tr>
-            </thead>
-            <tbody>
-              {LECTURE_SLOTS.map((slot) => {
-                const entry = timetable?.find((e) => e.lectureSlot === slot);
-                return (
-                  <tr key={slot} className="border-b border-slate-100">
-                    <td className="px-4 py-4 text-sm font-medium text-slate-900">
-                      {slot}
-                    </td>
-                    <td className="px-4 py-4 text-sm text-slate-900">
-                      {entry?.subject?.name || "-"}
-                    </td>
-                    <td className="px-4 py-4 text-sm text-slate-600">
-                      {entry?.subject?.code || "-"}
-                    </td>
-                    <td className="px-4 py-4 text-sm text-slate-900">
-                      {entry?.teacher?.name || "-"}
-                    </td>
-                    <td className="px-4 py-4 text-sm text-slate-900">
-                      {entry?.room?.name || "-"}
-                    </td>
-                    <td className="px-4 py-4">
-                      <div className="flex flex-wrap gap-1">
-                        {parseDayRange(entry?.dayRange || null).map((day) => (
-                          <span
-                            key={day}
-                            className="rounded bg-blue-50 px-2 py-1 text-xs font-medium text-blue-900"
-                          >
-                            {day}
-                          </span>
-                        ))}
-                      </div>
-                    </td>
-                  </tr>
-                );
-              })}
-            </tbody>
-          </table>
+        <div className="hidden md:block rounded-lg border border-slate-200 bg-white">
+          <div className="overflow-x-auto">
+            <table className="w-full table-fixed">
+              <thead>
+                <tr className="border-b border-slate-200 bg-slate-50">
+                  <th className="w-[18%] px-4 py-3 text-left text-sm font-semibold text-slate-900">
+                    Time
+                  </th>
+                  <th className="w-[22%] px-4 py-3 text-left text-sm font-semibold text-slate-900">
+                    Subject
+                  </th>
+                  <th className="w-[12%] px-4 py-3 text-left text-sm font-semibold text-slate-900">
+                    Code
+                  </th>
+                  <th className="w-[18%] px-4 py-3 text-left text-sm font-semibold text-slate-900">
+                    Teacher
+                  </th>
+                  <th className="w-[12%] px-4 py-3 text-left text-sm font-semibold text-slate-900">
+                    Room
+                  </th>
+                  <th className="w-[18%] px-4 py-3 text-left text-sm font-semibold text-slate-900">
+                    Days
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                {LECTURE_SLOTS.map((slot) => {
+                  const entry = timetable?.find((e) => e.lectureSlot === slot);
+                  return (
+                    <tr key={slot} className="border-b border-slate-100">
+                      <td className="px-4 py-4 text-sm font-medium text-slate-900 truncate">
+                        {slot}
+                      </td>
+                      <td className="px-4 py-4 text-sm text-slate-900 truncate">
+                        {entry?.subject?.name || "-"}
+                      </td>
+                      <td className="px-4 py-4 text-sm text-slate-600 truncate">
+                        {entry?.subject?.code || "-"}
+                      </td>
+                      <td className="px-4 py-4 text-sm text-slate-900 truncate">
+                        {entry?.teacher?.name || "-"}
+                      </td>
+                      <td className="px-4 py-4 text-sm text-slate-900 truncate">
+                        {entry?.room?.name || "-"}
+                      </td>
+                      <td className="px-4 py-4">
+                        <div className="flex flex-wrap gap-1">
+                          {parseDayRange(entry?.dayRange || null).map((day) => (
+                            <span
+                              key={day}
+                              className="rounded bg-blue-50 px-2 py-1 text-xs font-medium text-blue-900"
+                            >
+                              {day}
+                            </span>
+                          ))}
+                        </div>
+                      </td>
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </table>
+          </div>
         </div>
 
         {/* Mobile Card View */}
-        <div className="lg:hidden space-y-4">
+        <div className="md:hidden space-y-4">
           {LECTURE_SLOTS.map((slot) => {
             const entry = timetable?.find((e) => e.lectureSlot === slot);
             if (!entry?.subject) return null;

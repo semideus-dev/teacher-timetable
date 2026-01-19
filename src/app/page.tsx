@@ -185,120 +185,123 @@ export default function Home() {
           ) : (
             <>
               {/* Desktop Table View */}
-              <div className="hidden lg:block overflow-x-auto rounded-2xl border border-slate-200/50 bg-white shadow-xl">
-                <table className="w-full">
-                  <thead>
-                    <tr className="border-b border-slate-200 bg-linear-to-r from-blue-700 via-blue-600 to-blue-500">
-                      <th className="px-4 py-4 text-left text-sm font-bold text-white">
-                        Time
-                      </th>
-                      <th className="px-4 py-4 text-left text-sm font-bold text-white">
-                        Subject
-                      </th>
-                      <th className="px-4 py-4 text-left text-sm font-bold text-white">
-                        Code
-                      </th>
-                      {showTeacherView ? (
-                        <th className="px-4 py-4 text-left text-sm font-bold text-white">
-                          Class
+              <div className="hidden md:block rounded-2xl border border-slate-200/50 bg-white shadow-xl">
+                <div className="overflow-x-auto">
+                  <table className="w-full table-auto min-w-full">
+                    <thead>
+                      <tr className="border-b border-slate-200 bg-linear-to-r from-blue-700 via-blue-600 to-blue-500">
+                        <th className="px-3 py-4 text-left text-sm font-bold text-white whitespace-nowrap">
+                          Time
                         </th>
-                      ) : (
-                        <th className="px-4 py-4 text-left text-sm font-bold text-white">
-                          Teacher
+                        <th className="px-3 py-4 text-left text-sm font-bold text-white">
+                          Subject
                         </th>
-                      )}
-                      {!showRoomView && (
-                        <th className="px-4 py-4 text-left text-sm font-bold text-white">
-                          Room
+                        <th className="px-3 py-4 text-left text-sm font-bold text-white whitespace-nowrap">
+                          Code
                         </th>
-                      )}
-                      <th className="px-4 py-4 text-left text-sm font-bold text-white">
-                        Days
-                      </th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {LECTURE_SLOTS.map((slot, slotIndex) => {
-                      const entries =
-                        timetable?.filter((e: any) => e.lectureSlot === slot) ||
-                        [];
-                      if (entries.length === 0) return null;
+                        {showTeacherView ? (
+                          <th className="px-3 py-4 text-left text-sm font-bold text-white">
+                            Class
+                          </th>
+                        ) : (
+                          <th className="px-3 py-4 text-left text-sm font-bold text-white">
+                            Teacher
+                          </th>
+                        )}
+                        {!showRoomView && (
+                          <th className="px-3 py-4 text-left text-sm font-bold text-white whitespace-nowrap">
+                            Room
+                          </th>
+                        )}
+                        <th className="px-3 py-4 text-left text-sm font-bold text-white whitespace-nowrap">
+                          Days
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {LECTURE_SLOTS.map((slot, slotIndex) => {
+                        const entries =
+                          timetable?.filter(
+                            (e: any) => e.lectureSlot === slot
+                          ) || [];
+                        if (entries.length === 0) return null;
 
-                      return (
-                        <Fragment key={slot}>
-                          {/* Lecture slot header row */}
-                          <tr
-                            key={`${slot}-header`}
-                            className="bg-slate-100 border-t-2 border-slate-300"
-                          >
-                            <td
-                              colSpan={showRoomView ? 5 : 6}
-                              className="px-4 py-3"
-                            >
-                              <div className="flex items-center gap-2">
-                                <Clock className="h-5 w-5 text-blue-600" />
-                                <span className="text-sm font-bold text-slate-800">
-                                  {formatLectureSlot(slot)}
-                                </span>
-                                <span className="ml-auto text-xs text-slate-600 font-medium">
-                                  {entries.length}{" "}
-                                  {entries.length === 1 ? "class" : "classes"}
-                                </span>
-                              </div>
-                            </td>
-                          </tr>
-                          {/* Entries for this slot */}
-                          {entries.map((entry: any, entryIndex: number) => (
+                        return (
+                          <Fragment key={slot}>
+                            {/* Lecture slot header row */}
                             <tr
-                              key={`${slot}-${entryIndex}`}
-                              className="border-b border-slate-100 hover:bg-blue-50/30 transition-colors bg-white"
+                              key={`${slot}-header`}
+                              className="bg-slate-100 border-t-2 border-slate-300"
                             >
-                              <td className="px-4 py-3 text-xs text-slate-500 font-medium w-32">
-                                {/* Empty cell for alignment */}
-                              </td>
-                              <td className="px-4 py-3 text-sm font-semibold text-slate-900">
-                                {entry?.subject?.name || "-"}
-                              </td>
-                              <td className="px-4 py-3">
-                                <span className="text-xs font-bold text-white bg-blue-500 px-2.5 py-1 rounded-full">
-                                  {entry?.subject?.code || "-"}
-                                </span>
-                              </td>
-                              <td className="px-4 py-3 text-sm font-medium text-slate-700">
-                                {showTeacherView
-                                  ? entry?.program?.name || "-"
-                                  : entry?.teacher?.name || "-"}
-                              </td>
-                              {!showRoomView && (
-                                <td className="px-4 py-3 text-sm font-medium text-slate-700">
-                                  {entry?.room?.name || "-"}
-                                </td>
-                              )}
-                              <td className="px-4 py-3">
-                                <div className="flex flex-wrap gap-1.5">
-                                  {parseDayRange(entry?.dayRange || null).map(
-                                    (day) => (
-                                      <span
-                                        key={day}
-                                        className="rounded-lg bg-blue-600 px-2.5 py-1 text-xs font-bold text-white shadow-sm"
-                                      >
-                                        {day}
-                                      </span>
-                                    )
-                                  )}
+                              <td
+                                colSpan={showRoomView ? 5 : 6}
+                                className="px-3 py-3"
+                              >
+                                <div className="flex items-center gap-2">
+                                  <Clock className="h-5 w-5 text-blue-600 flex-shrink-0" />
+                                  <span className="text-sm font-bold text-slate-800">
+                                    {formatLectureSlot(slot)}
+                                  </span>
+                                  <span className="ml-auto text-xs text-slate-600 font-medium whitespace-nowrap">
+                                    {entries.length}{" "}
+                                    {entries.length === 1 ? "class" : "classes"}
+                                  </span>
                                 </div>
                               </td>
                             </tr>
-                          ))}
-                        </Fragment>
-                      );
-                    })}
-                  </tbody>
-                </table>
+                            {/* Entries for this slot */}
+                            {entries.map((entry: any, entryIndex: number) => (
+                              <tr
+                                key={`${slot}-${entryIndex}`}
+                                className="border-b border-slate-100 hover:bg-blue-50/30 transition-colors bg-white"
+                              >
+                                <td className="px-3 py-3 text-xs text-slate-500 font-medium">
+                                  {/* Empty cell for alignment */}
+                                </td>
+                                <td className="px-3 py-3 text-sm font-semibold text-slate-900">
+                                  {entry?.subject?.name || "-"}
+                                </td>
+                                <td className="px-3 py-3">
+                                  <span className="text-xs font-bold text-white bg-blue-500 px-2.5 py-1 rounded-full whitespace-nowrap">
+                                    {entry?.subject?.code || "-"}
+                                  </span>
+                                </td>
+                                <td className="px-3 py-3 text-sm font-medium text-slate-700">
+                                  {showTeacherView
+                                    ? entry?.program?.name || "-"
+                                    : entry?.teacher?.name || "-"}
+                                </td>
+                                {!showRoomView && (
+                                  <td className="px-3 py-3 text-sm font-medium text-slate-700">
+                                    {entry?.room?.name || "-"}
+                                  </td>
+                                )}
+                                <td className="px-3 py-3">
+                                  <div className="flex flex-wrap gap-1.5">
+                                    {parseDayRange(entry?.dayRange || null).map(
+                                      (day) => (
+                                        <span
+                                          key={day}
+                                          className="rounded-lg bg-blue-600 px-2.5 py-1 text-xs font-bold text-white shadow-sm"
+                                        >
+                                          {day}
+                                        </span>
+                                      )
+                                    )}
+                                  </div>
+                                </td>
+                              </tr>
+                            ))}
+                          </Fragment>
+                        );
+                      })}
+                    </tbody>
+                  </table>
+                </div>
               </div>
 
               {/* Mobile Card View */}
-              <div className="lg:hidden space-y-6">
+              <div className="md:hidden space-y-6">
                 {LECTURE_SLOTS.map((slot, index) => {
                   const entries =
                     timetable?.filter((e: any) => e.lectureSlot === slot) || [];

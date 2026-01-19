@@ -106,19 +106,20 @@ export default function TimetablePage() {
           </div>
         </div>
 
-        {/* Timetable Grid */}
-        <div className="overflow-x-auto">
-          <div className="min-w-max rounded-2xl border border-slate-200/50 bg-white shadow-2xl overflow-hidden">
+        {/* Timetable Grid - Desktop */}
+        <div className="hidden md:block">
+          <div className="rounded-2xl border border-slate-200/50 bg-white shadow-2xl overflow-hidden">
             {/* Header with Days */}
-            <div className="grid grid-cols-[100px_repeat(6,200px)] border-b border-slate-200 bg-linear-to-r from-blue-700 via-blue-600 to-blue-500">
+            <div className="grid grid-cols-7 border-b border-slate-200 bg-linear-to-r from-blue-700 via-blue-600 to-blue-500">
               <div className="px-2 py-4 text-xs font-bold text-white border-r border-blue-400/30 flex items-center gap-1.5">
-                <Clock className="h-4 w-4" />
-                Time Slot
+                <Clock className="h-4 w-4 shrink-0" />
+                <span className="hidden lg:inline">Time Slot</span>
+                <span className="lg:hidden">Time</span>
               </div>
               {DAYS.map((day, index) => (
                 <div
                   key={day}
-                  className={`px-4 py-4 text-center text-sm font-bold text-white border-r border-blue-400/30 last:border-r-0 ${
+                  className={`px-2 py-4 text-center text-sm font-bold text-white border-r border-blue-400/30 last:border-r-0 ${
                     index % 2 === 0 ? "bg-white/10" : ""
                   }`}
                 >
@@ -185,6 +186,130 @@ export default function TimetablePage() {
               return (
                 <div
                   key={slot}
+                  className="grid grid-cols-7 border-b border-slate-200/80 last:border-b-0 min-h-[120px]"
+                >
+                  {/* Time Column */}
+                  <div className="px-2 py-4 border-r border-slate-200 bg-linear-to-br from-slate-50 to-blue-50/30 flex flex-col justify-center">
+                    <div className="text-xs font-bold text-slate-700">
+                      Lec {slotIndex + 1}
+                    </div>
+                    <div className="text-[10px] text-slate-500 mt-0.5 font-semibold">
+                      {timeRange}
+                    </div>
+                  </div>
+
+                  {/* Day Columns */}
+                  {DAYS.map((day, dayIndex) => {
+                    const entry = timetable?.find((e) => {
+                      if (e.lectureSlot !== slot) return false;
+                      const entryDays = parseDayRange(e.dayRange);
+                      return entryDays.includes(day);
+                    });
+
+                    return (
+                      <div
+                        key={day}
+                        className={`px-2 py-4 border-r border-slate-200/50 last:border-r-0 transition-all duration-200 ${
+                          dayIndex % 2 === 0 ? "bg-slate-50/30" : "bg-white"
+                        }`}
+                      >
+                        {entry?.subject ? (
+                          <div
+                            className={`${
+                              colors[slotIndex % colors.length].bg
+                            } ${
+                              colors[slotIndex % colors.length].border
+                            } border rounded-xl p-2 h-full shadow-md hover:shadow-lg transition-all duration-200 hover:scale-[1.02] relative overflow-hidden`}
+                          >
+                            <div
+                              className={`absolute top-0 left-0 w-1 h-full ${
+                                colors[slotIndex % colors.length].accent
+                              }`}
+                            />
+                            <div className="space-y-1.5 pl-2">
+                              <div>
+                                <div className="text-xs font-bold text-slate-800 line-clamp-2 leading-tight">
+                                  {entry.subject.name}
+                                </div>
+                                <div className="text-[10px] font-bold text-white mt-1 px-2 py-0.5 bg-blue-600 rounded-md inline-block shadow-sm">
+                                  {entry.subject.code}
+                                </div>
+                              </div>
+                              {entry.teacher && (
+                                <div className="flex items-center gap-1 text-[10px] text-slate-700 font-medium">
+                                  <div className="bg-blue-600 p-0.5 rounded">
+                                    <User className="h-2.5 w-2.5 shrink-0 text-white" />
+                                  </div>
+                                  <span className="truncate">
+                                    {entry.teacher.name}
+                                  </span>
+                                </div>
+                              )}
+                              {entry.room && (
+                                <div className="flex items-center gap-1 text-[10px] text-slate-700 font-medium">
+                                  <div className="bg-blue-600 p-0.5 rounded">
+                                    <MapPin className="h-2.5 w-2.5 shrink-0 text-white" />
+                                  </div>
+                                  <span className="truncate">
+                                    {entry.room.name}
+                                  </span>
+                                </div>
+                              )}
+                            </div>
+                          </div>
+                        ) : (
+                          <div className="flex items-center justify-center h-full text-slate-400 bg-slate-50/50 rounded-lg border border-dashed border-slate-300">
+                            <span className="text-[10px] font-medium">
+                              No Class
+                            </span>
+                          </div>
+                        )}
+                      </div>
+                    );
+                  })}
+                </div>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* Timetable Grid - Mobile with horizontal scroll */}
+        <div className="md:hidden overflow-x-auto">
+          <div className="min-w-max rounded-2xl border border-slate-200/50 bg-white shadow-2xl overflow-hidden">
+            {/* Header with Days */}
+            <div className="grid grid-cols-[100px_repeat(6,200px)] border-b border-slate-200 bg-linear-to-r from-blue-700 via-blue-600 to-blue-500">
+              <div className="px-2 py-4 text-xs font-bold text-white border-r border-blue-400/30 flex items-center gap-1.5">
+                <Clock className="h-4 w-4" />
+                Time Slot
+              </div>
+              {DAYS.map((day, index) => (
+                <div
+                  key={day}
+                  className={`px-4 py-4 text-center text-sm font-bold text-white border-r border-blue-400/30 last:border-r-0 ${
+                    index % 2 === 0 ? "bg-white/10" : ""
+                  }`}
+                >
+                  {day}
+                </div>
+              ))}
+            </div>
+
+            {/* Time Slots */}
+            {LECTURE_SLOTS.map((slot, slotIndex) => {
+              const formattedSlot = formatLectureSlot(slot);
+              const timeRange = slot.match(/\((.+)\)/)?.[1] || "";
+              const colors = [
+                {
+                  bg: "bg-linear-to-br from-blue-50 to-blue-100",
+                  border: "border-blue-200",
+                  text: "text-slate-800",
+                  accent: "bg-blue-600",
+                },
+              ];
+
+              return (
+                <div
+                  key={slot}
                   className="grid grid-cols-[100px_repeat(6,200px)] border-b border-slate-200/80 last:border-b-0 min-h-[120px]"
                 >
                   {/* Time Column */}
@@ -214,16 +339,10 @@ export default function TimetablePage() {
                       >
                         {entry?.subject ? (
                           <div
-                            className={`${
-                              colors[slotIndex % colors.length].bg
-                            } ${
-                              colors[slotIndex % colors.length].border
-                            } border rounded-xl p-3 h-full shadow-md hover:shadow-lg transition-all duration-200 hover:scale-[1.02] relative overflow-hidden`}
+                            className={`${colors[0].bg} ${colors[0].border} border rounded-xl p-3 h-full shadow-md hover:shadow-lg transition-all duration-200 hover:scale-[1.02] relative overflow-hidden`}
                           >
                             <div
-                              className={`absolute top-0 left-0 w-1 h-full ${
-                                colors[slotIndex % colors.length].accent
-                              }`}
+                              className={`absolute top-0 left-0 w-1 h-full ${colors[0].accent}`}
                             />
                             <div className="space-y-2 pl-2">
                               <div>
@@ -270,114 +389,6 @@ export default function TimetablePage() {
               );
             })}
           </div>
-        </div>
-
-        {/* Mobile Card View */}
-        <div className="lg:hidden space-y-4 mt-6">
-          {LECTURE_SLOTS.map((slot, index) => {
-            const entry = timetable?.find((e) => e.lectureSlot === slot);
-            if (!entry?.subject) return null;
-
-            const colors = [
-              {
-                bg: "from-blue-600 to-blue-700",
-                border: "border-blue-200",
-                card: "from-blue-50 to-blue-100",
-              },
-              {
-                bg: "from-blue-600 to-blue-700",
-                border: "border-blue-200",
-                card: "from-blue-50 to-blue-100",
-              },
-              {
-                bg: "from-blue-600 to-blue-700",
-                border: "border-blue-200",
-                card: "from-blue-50 to-blue-100",
-              },
-              {
-                bg: "from-blue-600 to-blue-700",
-                border: "border-blue-200",
-                card: "from-blue-50 to-blue-100",
-              },
-              {
-                bg: "from-blue-600 to-blue-700",
-                border: "border-blue-200",
-                card: "from-blue-50 to-blue-100",
-              },
-              {
-                bg: "from-blue-600 to-blue-700",
-                border: "border-blue-200",
-                card: "from-blue-50 to-blue-100",
-              },
-              {
-                bg: "from-blue-600 to-blue-700",
-                border: "border-blue-200",
-                card: "from-blue-50 to-blue-100",
-              },
-              {
-                bg: "from-blue-600 to-blue-700",
-                border: "border-blue-200",
-                card: "from-blue-50 to-blue-100",
-              },
-            ];
-            const color = colors[index % colors.length];
-
-            return (
-              <div
-                key={slot}
-                className={`rounded-2xl border ${color.border} bg-linear-to-br ${color.card} p-5 shadow-lg hover:shadow-xl transition-all duration-200`}
-              >
-                <div
-                  className={`mb-4 flex items-center gap-3 bg-linear-to-r ${color.bg} text-white p-3 rounded-lg shadow-md`}
-                >
-                  <Clock className="h-5 w-5" />
-                  <span className="font-bold text-sm">
-                    {formatLectureSlot(slot)}
-                  </span>
-                </div>
-                <div className="space-y-3">
-                  <div className="bg-white rounded-lg p-3 shadow-sm">
-                    <p className="text-base font-bold text-slate-800">
-                      {entry.subject?.name}
-                    </p>
-                    <p className="text-xs font-bold mt-2 px-3 py-1.5 bg-blue-600 text-white rounded-md inline-block shadow-sm">
-                      {entry.subject?.code}
-                    </p>
-                  </div>
-                  {entry.teacher && (
-                    <div className="flex items-center gap-3 bg-white p-2.5 rounded-lg">
-                      <div className="bg-blue-600 p-2 rounded-lg shadow">
-                        <User className="h-4 w-4 text-white" />
-                      </div>
-                      <span className="font-semibold text-slate-800">
-                        {entry.teacher.name}
-                      </span>
-                    </div>
-                  )}
-                  {entry.room && (
-                    <div className="flex items-center gap-3 bg-white p-2.5 rounded-lg">
-                      <div className="bg-blue-600 p-2 rounded-lg shadow">
-                        <MapPin className="h-4 w-4 text-white" />
-                      </div>
-                      <span className="font-semibold text-slate-800">
-                        {entry.room.name}
-                      </span>
-                    </div>
-                  )}
-                  <div className="flex flex-wrap gap-2 pt-2">
-                    {parseDayRange(entry.dayRange).map((day) => (
-                      <span
-                        key={day}
-                        className="rounded-lg bg-blue-600 px-3 py-1.5 text-xs font-bold text-white shadow-md"
-                      >
-                        {day}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            );
-          })}
         </div>
       </main>
     </div>
