@@ -116,6 +116,12 @@ export const subject = pgTable("subject", {
     .notNull(),
 });
 
+export const visitorStats = pgTable("visitor_stats", {
+  id: integer("id").primaryKey().generatedAlwaysAsIdentity(),
+  date: text("date").notNull().unique(),
+  count: integer("count").notNull().default(0),
+});
+
 export const timetableEntry = pgTable("timetable_entry", {
   id: uuid("id").primaryKey().defaultRandom(),
   programId: uuid("program_id")

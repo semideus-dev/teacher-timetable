@@ -1,0 +1,1733 @@
+{
+  "source_file": "Book1.xlsx",
+  "programs_count": 25,
+  "programs": [
+    {
+      "program_name": "B.Voc. (SD)-II",
+      "program_ids": [],
+      "teachers": [],
+      "lectures": [],
+      "field_codes": [],
+      "other_unique_rows": [
+        {
+          "feild_name": "subject",
+          "lect-2_(9:45-10:30)": "LAB C++",
+          "lect-3_(10:30-11:15)": "Pbi",
+          "lect-4_(11:15-12:00)": "OOPS",
+          "lect-5_(12:00-12:45)": "DATA STRUCTURES",
+          "lect-6_(12:45-1:30)": "Internet Applications",
+          "lect-7_(1:30-2:15)": "Comm. Skills",
+          "lect-8_(2:15-3:00)": "Drug Abuse/C.Skills"
+        },
+        {
+          "feild_name": "Code",
+          "lect-2_(9:45-10:30)": "BSD02004L",
+          "lect-3_(10:30-11:15)": "PBL602",
+          "lect-4_(11:15-12:00)": "BSD02003T",
+          "lect-5_(12:00-12:45)": "BSD02002T",
+          "lect-6_(12:45-1:30)": "BSD02001T",
+          "lect-7_(1:30-2:15)": "ENL-ENP122",
+          "lect-8_(2:15-3:00)": "SOA-105/"
+        },
+        {
+          "feild_name": "Teacher",
+          "lect-2_(9:45-10:30)": "Dr. Daljit Kaur",
+          "lect-3_(10:30-11:15)": "NEW-II",
+          "lect-4_(11:15-12:00)": "TARANDEEP SAINI",
+          "lect-5_(12:00-12:45)": "Dr. Sandeep Singh",
+          "lect-6_(12:45-1:30)": "Navneet Kaur",
+          "lect-7_(1:30-2:15)": "NEW-III",
+          "lect-8_(2:15-3:00)": "NEW-I"
+        },
+        {
+          "feild_name": "Room",
+          "lect-2_(9:45-10:30)": "LAB-PT",
+          "lect-3_(10:30-11:15)": "R-NR4",
+          "lect-4_(11:15-12:00)": "R-42",
+          "lect-5_(12:00-12:45)": "R-42",
+          "lect-6_(12:45-1:30)": "R-42",
+          "lect-7_(1:30-2:15)": "R-NR4",
+          "lect-8_(2:15-3:00)": "R-NR4"
+        },
+        {
+          "feild_name": "Day",
+          "lect-2_(9:45-10:30)": "(1-3)",
+          "lect-3_(10:30-11:15)": "(4-6)",
+          "lect-4_(11:15-12:00)": "(1-6)",
+          "lect-5_(12:00-12:45)": "(1-6)",
+          "lect-6_(12:45-1:30)": "(1-6)",
+          "lect-7_(1:30-2:15)": "(1-3)",
+          "lect-8_(2:15-3:00)": "(5-6)/(1-3)"
+        },
+        {
+          "feild_name": "subject",
+          "lect-2_(9:45-10:30)": "Lab Data Structures",
+          "lect-3_(10:30-11:15)": "Lab Data Structures",
+          "lect-7_(1:30-2:15)": "LAB C++"
+        },
+        {
+          "feild_name": "Code",
+          "lect-2_(9:45-10:30)": "BSD02005L",
+          "lect-3_(10:30-11:15)": "BSD02005L",
+          "lect-7_(1:30-2:15)": "BSD02004L"
+        },
+        {
+          "feild_name": "Teacher",
+          "lect-2_(9:45-10:30)": "Dr. Sandeep Singh",
+          "lect-3_(10:30-11:15)": "Dr. Sandeep Singh",
+          "lect-7_(1:30-2:15)": "Dr. Daljit Kaur"
+        },
+        {
+          "feild_name": "Room",
+          "lect-2_(9:45-10:30)": "LAB-PT",
+          "lect-3_(10:30-11:15)": "LAB-PT",
+          "lect-7_(1:30-2:15)": "LAB-I"
+        },
+        {
+          "feild_name": "Day",
+          "lect-2_(9:45-10:30)": "(4-6)",
+          "lect-3_(10:30-11:15)": "(1-3)",
+          "lect-7_(1:30-2:15)": "(4-6)"
+        }
+      ],
+      "entries_count": 10
+    },
+    {
+      "program_name": "B.Voc. (SD)-IV",
+      "program_ids": [],
+      "teachers": [],
+      "lectures": [],
+      "field_codes": [],
+      "other_unique_rows": [
+        {
+          "feild_name": "subject",
+          "lect-1_(9:00-9:45)": "EVS-222",
+          "lect-2_(9:45-10:30)": "PYTHON",
+          "lect-3_(10:30-11:15)": "ANDROID LAB",
+          "lect-4_(11:15-12:00)": "INFORMATION SECURITY",
+          "lect-5_(12:00-12:45)": "OPEN SOURCE SOFTWARE",
+          "lect-6_(12:45-1:30)": "PYTHON LAB",
+          "lect-7_(1:30-2:15)": "MINOR PROJECT"
+        },
+        {
+          "feild_name": "Code",
+          "lect-1_(9:00-9:45)": "EVS",
+          "lect-2_(9:45-10:30)": "BSD04003T",
+          "lect-3_(10:30-11:15)": "BBSD04004L",
+          "lect-4_(11:15-12:00)": "BSD04002T",
+          "lect-5_(12:00-12:45)": "BSD04001T",
+          "lect-6_(12:45-1:30)": "BSD04005L",
+          "lect-7_(1:30-2:15)": "BSD04006L"
+        },
+        {
+          "feild_name": "Teacher",
+          "lect-1_(9:00-9:45)": "Dr. Jaswinder Kaur",
+          "lect-2_(9:45-10:30)": "Ratnakar",
+          "lect-3_(10:30-11:15)": "JASDEEP SINGH",
+          "lect-4_(11:15-12:00)": "Sandeep Bassi",
+          "lect-5_(12:00-12:45)": "Sonu Gupta",
+          "lect-6_(12:45-1:30)": "Ratnakar",
+          "lect-7_(1:30-2:15)": "Heena"
+        },
+        {
+          "feild_name": "Room",
+          "lect-1_(9:00-9:45)": "R-32",
+          "lect-2_(9:45-10:30)": "R-43",
+          "lect-3_(10:30-11:15)": "LAB-SKILL",
+          "lect-4_(11:15-12:00)": "R-43",
+          "lect-5_(12:00-12:45)": "R-43",
+          "lect-6_(12:45-1:30)": "LAB-PT",
+          "lect-7_(1:30-2:15)": "LAB-PT"
+        },
+        {
+          "feild_name": "Day",
+          "lect-1_(9:00-9:45)": "(4-6)",
+          "lect-2_(9:45-10:30)": "(1-6)",
+          "lect-3_(10:30-11:15)": "(1-6)",
+          "lect-4_(11:15-12:00)": "(1-6)",
+          "lect-5_(12:00-12:45)": "(1-6)",
+          "lect-6_(12:45-1:30)": "(1-6)",
+          "lect-7_(1:30-2:15)": "(1-6)"
+        }
+      ],
+      "entries_count": 5
+    },
+    {
+      "program_name": "B.Voc. (SD)-VI",
+      "program_ids": [],
+      "teachers": [],
+      "lectures": [],
+      "field_codes": [],
+      "other_unique_rows": [
+        {
+          "feild_name": "subject",
+          "lect-8_(2:15-3:00)": "PROJECT"
+        },
+        {
+          "feild_name": "Code",
+          "lect-8_(2:15-3:00)": "BSD06001L(G1)"
+        },
+        {
+          "feild_name": "Teacher",
+          "lect-8_(2:15-3:00)": "Navneet Kaur"
+        },
+        {
+          "feild_name": "Room",
+          "lect-8_(2:15-3:00)": "LAB-ANM"
+        },
+        {
+          "feild_name": "Day",
+          "lect-8_(2:15-3:00)": "(1-3)"
+        },
+        {
+          "feild_name": "Code",
+          "lect-8_(2:15-3:00)": "BSD06001L(G2)"
+        },
+        {
+          "feild_name": "Teacher",
+          "lect-8_(2:15-3:00)": "Dr. Daljit Kaur"
+        },
+        {
+          "feild_name": "Day",
+          "lect-8_(2:15-3:00)": "(4-6)"
+        }
+      ],
+      "entries_count": 10
+    },
+    {
+      "program_name": "BAJMC \nSemester-II",
+      "program_ids": [],
+      "teachers": [],
+      "lectures": [],
+      "field_codes": [],
+      "other_unique_rows": [
+        {
+          "feild_name": "subject",
+          "lect-1_(9:00-9:45)": "Design & Graphics (LT)",
+          "lect-2_(9:45-10:30)": "Press Laws and Media Ethics",
+          "lect-3_(10:30-11:15)": "Pbi",
+          "lect-5_(12:00-12:45)": "Photography and Photo Journalism LAB",
+          "lect-6_(12:45-1:30)": "Mass Communication : Concepts and Processes",
+          "lect-7_(1:30-2:15)": "Comm. Skills"
+        },
+        {
+          "feild_name": "Code",
+          "lect-1_(9:00-9:45)": "P-III",
+          "lect-2_(9:45-10:30)": "P-I",
+          "lect-3_(10:30-11:15)": "PBL602",
+          "lect-5_(12:00-12:45)": "SEC(P)",
+          "lect-6_(12:45-1:30)": "P-II",
+          "lect-7_(1:30-2:15)": "ENL-ENP122"
+        },
+        {
+          "feild_name": "Teacher",
+          "lect-1_(9:00-9:45)": "Anjali",
+          "lect-2_(9:45-10:30)": "Monika",
+          "lect-3_(10:30-11:15)": "NEW-II",
+          "lect-5_(12:00-12:45)": "Monika",
+          "lect-6_(12:45-1:30)": "Rajat Kaur",
+          "lect-7_(1:30-2:15)": "NEW-III"
+        },
+        {
+          "feild_name": "Room",
+          "lect-1_(9:00-9:45)": "LAB-MEDIA",
+          "lect-2_(9:45-10:30)": "R-NR2",
+          "lect-3_(10:30-11:15)": "R-NR4",
+          "lect-5_(12:00-12:45)": "LAB-MEDIA",
+          "lect-6_(12:45-1:30)": "LAB-MEDIA",
+          "lect-7_(1:30-2:15)": "R-NR4"
+        },
+        {
+          "feild_name": "Day",
+          "lect-1_(9:00-9:45)": "(1-6)",
+          "lect-2_(9:45-10:30)": "(1-6)",
+          "lect-3_(10:30-11:15)": "(4-6)",
+          "lect-5_(12:00-12:45)": "(4-6)",
+          "lect-6_(12:45-1:30)": "(1-6)",
+          "lect-7_(1:30-2:15)": "(1-3)"
+        },
+        {
+          "feild_name": "subject",
+          "lect-3_(10:30-11:15)": "Basic Pbi",
+          "lect-5_(12:00-12:45)": "Photography and Photo Journalism"
+        },
+        {
+          "feild_name": "Code",
+          "lect-3_(10:30-11:15)": "PBL612",
+          "lect-5_(12:00-12:45)": "SEC(T)"
+        },
+        {
+          "feild_name": "Teacher",
+          "lect-3_(10:30-11:15)": "NEW-II",
+          "lect-5_(12:00-12:45)": "Monika"
+        },
+        {
+          "feild_name": "Room",
+          "lect-3_(10:30-11:15)": "R-12",
+          "lect-5_(12:00-12:45)": "R-NR2"
+        },
+        {
+          "feild_name": "Day",
+          "lect-3_(10:30-11:15)": "(1-6)",
+          "lect-5_(12:00-12:45)": "(1-3)"
+        }
+      ],
+      "entries_count": 10
+    },
+    {
+      "program_name": "BAJMC \nSemester-IV",
+      "program_ids": [],
+      "teachers": [],
+      "lectures": [],
+      "field_codes": [],
+      "other_unique_rows": [
+        {
+          "feild_name": "subject",
+          "lect-1_(9:00-9:45)": "VIDEO PROD.",
+          "lect-3_(10:30-11:15)": "THEATER STUDIES",
+          "lect-4_(11:15-12:00)": "RADIO&TV",
+          "lect-6_(12:45-1:30)": "FOLK MEDIA",
+          "lect-7_(1:30-2:15)": "RADIO&TVLAB"
+        },
+        {
+          "feild_name": "Code",
+          "lect-1_(9:00-9:45)": "BJM04004T",
+          "lect-3_(10:30-11:15)": "BJM040011T\n",
+          "lect-4_(11:15-12:00)": "BJM04003T",
+          "lect-6_(12:45-1:30)": "BJM04005T",
+          "lect-7_(1:30-2:15)": "BJM04008L"
+        },
+        {
+          "feild_name": "Teacher",
+          "lect-1_(9:00-9:45)": "Monika",
+          "lect-3_(10:30-11:15)": "Rajat Kaur",
+          "lect-4_(11:15-12:00)": "Rajat Kaur",
+          "lect-6_(12:45-1:30)": "Anjali",
+          "lect-7_(1:30-2:15)": "Anjali"
+        },
+        {
+          "feild_name": "Room",
+          "lect-1_(9:00-9:45)": "R-30",
+          "lect-3_(10:30-11:15)": "LAB-MEDIA",
+          "lect-4_(11:15-12:00)": "R-31",
+          "lect-6_(12:45-1:30)": "R-31",
+          "lect-7_(1:30-2:15)": "LAB-MEDIA"
+        },
+        {
+          "feild_name": "Day",
+          "lect-1_(9:00-9:45)": "(1-6)",
+          "lect-3_(10:30-11:15)": "(4-6)",
+          "lect-4_(11:15-12:00)": "(1-3)",
+          "lect-6_(12:45-1:30)": "(1-6)",
+          "lect-7_(1:30-2:15)": "(1-3)"
+        },
+        {
+          "feild_name": "subject",
+          "lect-4_(11:15-12:00)": "ADVERTISING",
+          "lect-7_(1:30-2:15)": "MEDIA COMM"
+        },
+        {
+          "feild_name": "Code",
+          "lect-4_(11:15-12:00)": "BJM04006T",
+          "lect-7_(1:30-2:15)": "BJM04002T"
+        },
+        {
+          "feild_name": "Teacher",
+          "lect-4_(11:15-12:00)": "Rajat Kaur",
+          "lect-7_(1:30-2:15)": "Rajat Kaur"
+        },
+        {
+          "feild_name": "Room",
+          "lect-4_(11:15-12:00)": "R-31",
+          "lect-7_(1:30-2:15)": "R-31"
+        },
+        {
+          "feild_name": "Day",
+          "lect-4_(11:15-12:00)": "(4-6)",
+          "lect-7_(1:30-2:15)": "(4-6)"
+        }
+      ],
+      "entries_count": 10
+    },
+    {
+      "program_name": "BAJMC \nSemester-VI",
+      "program_ids": [],
+      "teachers": [],
+      "lectures": [],
+      "field_codes": [],
+      "other_unique_rows": [
+        {
+          "feild_name": "subject",
+          "lect-2_(9:45-10:30)": "AUDIO LAB",
+          "lect-3_(10:30-11:15)": "AUDIO SOUND",
+          "lect-4_(11:15-12:00)": "CURRENT AFFAIRS",
+          "lect-5_(12:00-12:45)": "REPORTING",
+          "lect-6_(12:45-1:30)": "FILM PROJECT"
+        },
+        {
+          "feild_name": "Code",
+          "lect-2_(9:45-10:30)": "P-606",
+          "lect-3_(10:30-11:15)": "P-603",
+          "lect-4_(11:15-12:00)": "P-602",
+          "lect-5_(12:00-12:45)": "P-605",
+          "lect-6_(12:45-1:30)": "P-608"
+        },
+        {
+          "feild_name": "Teacher",
+          "lect-2_(9:45-10:30)": "Anjali",
+          "lect-3_(10:30-11:15)": "Monika",
+          "lect-4_(11:15-12:00)": "Anjali",
+          "lect-5_(12:00-12:45)": "Rajat Kaur",
+          "lect-6_(12:45-1:30)": "Monika"
+        },
+        {
+          "feild_name": "Room",
+          "lect-2_(9:45-10:30)": "LAB-MEDIA",
+          "lect-3_(10:30-11:15)": "R-NR2",
+          "lect-4_(11:15-12:00)": "R-NR2",
+          "lect-5_(12:00-12:45)": "LAB-MEDIA",
+          "lect-6_(12:45-1:30)": "LAB-MEDIA"
+        },
+        {
+          "feild_name": "Day",
+          "lect-2_(9:45-10:30)": "(1-3)",
+          "lect-3_(10:30-11:15)": "(1-3)",
+          "lect-4_(11:15-12:00)": "(1-3)",
+          "lect-5_(12:00-12:45)": "(1-3)",
+          "lect-6_(12:45-1:30)": "(1-3)"
+        },
+        {
+          "feild_name": "subject",
+          "lect-2_(9:45-10:30)": "REPORTING LAB",
+          "lect-3_(10:30-11:15)": "GLOBAL MEDIA",
+          "lect-6_(12:45-1:30)": "FILM PROD."
+        },
+        {
+          "feild_name": "Code",
+          "lect-2_(9:45-10:30)": "P-607",
+          "lect-3_(10:30-11:15)": "P-601",
+          "lect-6_(12:45-1:30)": "P-604"
+        },
+        {
+          "feild_name": "Teacher",
+          "lect-2_(9:45-10:30)": "Rajat Kaur",
+          "lect-3_(10:30-11:15)": "Anjali",
+          "lect-6_(12:45-1:30)": "Monika"
+        },
+        {
+          "feild_name": "Room",
+          "lect-2_(9:45-10:30)": "LAB-MEDIA",
+          "lect-3_(10:30-11:15)": "R-NR2",
+          "lect-6_(12:45-1:30)": "LAB-MEDIA"
+        },
+        {
+          "feild_name": "Day",
+          "lect-2_(9:45-10:30)": "(4-6)",
+          "lect-3_(10:30-11:15)": "(4-6)",
+          "lect-6_(12:45-1:30)": "(4-6)"
+        }
+      ],
+      "entries_count": 10
+    },
+    {
+      "program_name": "BCA\nSem-IV",
+      "program_ids": [],
+      "teachers": [],
+      "lectures": [],
+      "field_codes": [],
+      "other_unique_rows": [
+        {
+          "feild_name": "subject",
+          "lect-1_(9:00-9:45)": "EVS",
+          "lect-2_(9:45-10:30)": "Compiler Design",
+          "lect-3_(10:30-11:15)": "C++",
+          "lect-4_(11:15-12:00)": "DBMS",
+          "lect-5_(12:00-12:45)": "C++ LAB",
+          "lect-6_(12:45-1:30)": "Security in Computing",
+          "lect-7_(1:30-2:15)": "COMP. N-W",
+          "lect-8_(2:15-3:00)": "DBMS LAB"
+        },
+        {
+          "feild_name": "Code",
+          "lect-1_(9:00-9:45)": "ESL221",
+          "lect-2_(9:45-10:30)": "BCA04014T",
+          "lect-3_(10:30-11:15)": "BCA04007T",
+          "lect-4_(11:15-12:00)": "BCA04009T",
+          "lect-5_(12:00-12:45)": "BCA04008L(G1)",
+          "lect-6_(12:45-1:30)": "BCA04012T",
+          "lect-7_(1:30-2:15)": "BCA04011T",
+          "lect-8_(2:15-3:00)": "BCA04010L(G1)"
+        },
+        {
+          "feild_name": "Teacher",
+          "lect-1_(9:00-9:45)": "Dr. Jaswinder Kaur",
+          "lect-2_(9:45-10:30)": "JASDEEP SINGH",
+          "lect-3_(10:30-11:15)": "Navneet Kaur",
+          "lect-4_(11:15-12:00)": "Heena",
+          "lect-5_(12:00-12:45)": "Navneet Kaur",
+          "lect-6_(12:45-1:30)": "Dr. Daljit Kaur",
+          "lect-7_(1:30-2:15)": "Sandeep Bassi",
+          "lect-8_(2:15-3:00)": "Rakhi"
+        },
+        {
+          "feild_name": "Room",
+          "lect-1_(9:00-9:45)": "R-32",
+          "lect-2_(9:45-10:30)": "R-39",
+          "lect-3_(10:30-11:15)": "R-39",
+          "lect-4_(11:15-12:00)": "R-39",
+          "lect-5_(12:00-12:45)": "LAB-I",
+          "lect-6_(12:45-1:30)": "R-39",
+          "lect-7_(1:30-2:15)": "R-39",
+          "lect-8_(2:15-3:00)": "LAB-III"
+        },
+        {
+          "feild_name": "Day",
+          "lect-1_(9:00-9:45)": "(1-3)",
+          "lect-2_(9:45-10:30)": "(1-6)",
+          "lect-3_(10:30-11:15)": "(1-6)",
+          "lect-4_(11:15-12:00)": "(1-6)",
+          "lect-5_(12:00-12:45)": "(1-3)",
+          "lect-6_(12:45-1:30)": "(1-6)",
+          "lect-7_(1:30-2:15)": "(1-6)",
+          "lect-8_(2:15-3:00)": "(1-3)"
+        },
+        {
+          "feild_name": "subject",
+          "lect-5_(12:00-12:45)": "C++ LAB",
+          "lect-8_(2:15-3:00)": "DBMS LAB"
+        },
+        {
+          "feild_name": "Code",
+          "lect-5_(12:00-12:45)": "BCA04008L(G2)",
+          "lect-8_(2:15-3:00)": "BCA04010L(G2)"
+        },
+        {
+          "feild_name": "Teacher",
+          "lect-5_(12:00-12:45)": "Ravinder Kaur",
+          "lect-8_(2:15-3:00)": "Vaishali Gupta"
+        },
+        {
+          "feild_name": "Room",
+          "lect-5_(12:00-12:45)": "LAB-I",
+          "lect-8_(2:15-3:00)": "LAB-III"
+        },
+        {
+          "feild_name": "Day",
+          "lect-5_(12:00-12:45)": "(4-6)",
+          "lect-8_(2:15-3:00)": "(4-6)"
+        }
+      ],
+      "entries_count": 10
+    },
+    {
+      "program_name": "BCA \nSem-II A",
+      "program_ids": [],
+      "teachers": [],
+      "lectures": [],
+      "field_codes": [],
+      "other_unique_rows": [
+        {
+          "feild_name": "subject",
+          "lect-1_(9:00-9:45)": "Drug Abuse",
+          "lect-2_(9:45-10:30)": "NM",
+          "lect-3_(10:30-11:15)": "Pbi",
+          "lect-4_(11:15-12:00)": "Programming in C",
+          "lect-5_(12:00-12:45)": "ELECTRONICS",
+          "lect-6_(12:45-1:30)": "C LAB",
+          "lect-7_(1:30-2:15)": "C LAB"
+        },
+        {
+          "feild_name": "Code",
+          "lect-1_(9:00-9:45)": "SOA105",
+          "lect-2_(9:45-10:30)": "BCA-204",
+          "lect-3_(10:30-11:15)": "PBL602",
+          "lect-4_(11:15-12:00)": "BCA-201",
+          "lect-5_(12:00-12:45)": "BCA-203",
+          "lect-6_(12:45-1:30)": "BCA-202(G1)",
+          "lect-7_(1:30-2:15)": "BCA-202(G2)"
+        },
+        {
+          "feild_name": "Teacher",
+          "lect-1_(9:00-9:45)": "NEW-I",
+          "lect-2_(9:45-10:30)": "Vaishali Gupta",
+          "lect-3_(10:30-11:15)": "NEW-II",
+          "lect-4_(11:15-12:00)": "SK Anand",
+          "lect-5_(12:00-12:45)": "JASDEEP SINGH",
+          "lect-6_(12:45-1:30)": "Ravinder Kaur",
+          "lect-7_(1:30-2:15)": "SK Anand"
+        },
+        {
+          "feild_name": "Room",
+          "lect-1_(9:00-9:45)": "R-NR4",
+          "lect-2_(9:45-10:30)": "R-NR3",
+          "lect-3_(10:30-11:15)": "R-NR3",
+          "lect-4_(11:15-12:00)": "R-NR3",
+          "lect-5_(12:00-12:45)": "R-NR3",
+          "lect-6_(12:45-1:30)": "LAB-I",
+          "lect-7_(1:30-2:15)": "LAB-I"
+        },
+        {
+          "feild_name": "Day",
+          "lect-1_(9:00-9:45)": "(5-6)",
+          "lect-2_(9:45-10:30)": "(1-6)",
+          "lect-3_(10:30-11:15)": "(1-3)",
+          "lect-4_(11:15-12:00)": "(1-6)",
+          "lect-5_(12:00-12:45)": "(1-6)",
+          "lect-6_(12:45-1:30)": "(1-3)",
+          "lect-7_(1:30-2:15)": "(1-3)"
+        },
+        {
+          "feild_name": "subject",
+          "lect-3_(10:30-11:15)": "Basic Pbi",
+          "lect-7_(1:30-2:15)": "COMM SKILLS"
+        },
+        {
+          "feild_name": "Code",
+          "lect-3_(10:30-11:15)": "PBL612",
+          "lect-7_(1:30-2:15)": "ENL-ENP122"
+        },
+        {
+          "feild_name": "Teacher",
+          "lect-3_(10:30-11:15)": "NEW-II",
+          "lect-7_(1:30-2:15)": "NEW-III"
+        },
+        {
+          "feild_name": "Room",
+          "lect-3_(10:30-11:15)": "R-12",
+          "lect-7_(1:30-2:15)": "R-NR3"
+        },
+        {
+          "feild_name": "Day",
+          "lect-3_(10:30-11:15)": "(1-6)",
+          "lect-7_(1:30-2:15)": "(4-6)"
+        }
+      ],
+      "entries_count": 10
+    },
+    {
+      "program_name": "BCA \nSem-II B",
+      "program_ids": [],
+      "teachers": [],
+      "lectures": [],
+      "field_codes": [],
+      "other_unique_rows": [
+        {
+          "feild_name": "subject",
+          "lect-1_(9:00-9:45)": "Drug Abuse",
+          "lect-2_(9:45-10:30)": "C LAB",
+          "lect-3_(10:30-11:15)": "Pbi",
+          "lect-4_(11:15-12:00)": "ELECTRONICS",
+          "lect-5_(12:00-12:45)": "NM",
+          "lect-6_(12:45-1:30)": "Programming in C",
+          "lect-7_(1:30-2:15)": "Comm. Skills"
+        },
+        {
+          "feild_name": "Code",
+          "lect-1_(9:00-9:45)": "SOA105",
+          "lect-2_(9:45-10:30)": "P-2(G2)",
+          "lect-3_(10:30-11:15)": "PBL602",
+          "lect-4_(11:15-12:00)": "P-3",
+          "lect-5_(12:00-12:45)": "P-4",
+          "lect-6_(12:45-1:30)": "P-1",
+          "lect-7_(1:30-2:15)": "ENL-ENP122"
+        },
+        {
+          "feild_name": "Teacher",
+          "lect-1_(9:00-9:45)": "NEW-I",
+          "lect-2_(9:45-10:30)": "Karitika",
+          "lect-3_(10:30-11:15)": "NEW-II",
+          "lect-4_(11:15-12:00)": "Dr. Sandeep Singh",
+          "lect-5_(12:00-12:45)": "Vaishali Gupta",
+          "lect-6_(12:45-1:30)": "SK Anand",
+          "lect-7_(1:30-2:15)": "NEW-III"
+        },
+        {
+          "feild_name": "Room",
+          "lect-1_(9:00-9:45)": "R-NR4",
+          "lect-2_(9:45-10:30)": "LAB-I",
+          "lect-3_(10:30-11:15)": "R-NR4",
+          "lect-4_(11:15-12:00)": "R-NR4",
+          "lect-5_(12:00-12:45)": "R-NR4",
+          "lect-6_(12:45-1:30)": "R-NR4",
+          "lect-7_(1:30-2:15)": "R-NR4"
+        },
+        {
+          "feild_name": "Day",
+          "lect-1_(9:00-9:45)": "(5-6)",
+          "lect-2_(9:45-10:30)": "(4-6)",
+          "lect-3_(10:30-11:15)": "(1-3)",
+          "lect-4_(11:15-12:00)": "(1-6)",
+          "lect-5_(12:00-12:45)": "(1-6)",
+          "lect-6_(12:45-1:30)": "(1-6)",
+          "lect-7_(1:30-2:15)": "(1-3)"
+        },
+        {
+          "feild_name": "subject",
+          "lect-1_(9:00-9:45)": "C Lab",
+          "lect-3_(10:30-11:15)": "Basic Pbi"
+        },
+        {
+          "feild_name": "Code",
+          "lect-1_(9:00-9:45)": "P-2(G1)",
+          "lect-3_(10:30-11:15)": "PBL612"
+        },
+        {
+          "feild_name": "Teacher",
+          "lect-1_(9:00-9:45)": "JASDEEP SINGH",
+          "lect-3_(10:30-11:15)": "NEW-II"
+        },
+        {
+          "feild_name": "Room",
+          "lect-1_(9:00-9:45)": "LAB-SD",
+          "lect-3_(10:30-11:15)": "R-12"
+        },
+        {
+          "feild_name": "Day",
+          "lect-1_(9:00-9:45)": "(1-3)",
+          "lect-3_(10:30-11:15)": "(1-6)"
+        }
+      ],
+      "entries_count": 10
+    },
+    {
+      "program_name": "BCA \nSem-VI",
+      "program_ids": [],
+      "teachers": [],
+      "lectures": [],
+      "field_codes": [],
+      "other_unique_rows": [
+        {
+          "feild_name": "subject",
+          "lect-3_(10:30-11:15)": "GRAPHICS LAB",
+          "lect-4_(11:15-12:00)": "COMP N-W",
+          "lect-5_(12:00-12:45)": "GRAPHICS",
+          "lect-6_(12:45-1:30)": "Project",
+          "lect-8_(2:15-3:00)": "PROJECT"
+        },
+        {
+          "feild_name": "Code",
+          "lect-3_(10:30-11:15)": "BCA06003L(G1)",
+          "lect-4_(11:15-12:00)": "BCA06002T",
+          "lect-5_(12:00-12:45)": "BCA06001T",
+          "lect-6_(12:45-1:30)": "BCA06004L(G1)",
+          "lect-8_(2:15-3:00)": "BCA06004L(G2)"
+        },
+        {
+          "feild_name": "Teacher",
+          "lect-3_(10:30-11:15)": "Vaishali Gupta",
+          "lect-4_(11:15-12:00)": "MS Bhatia",
+          "lect-5_(12:00-12:45)": "Dr. MS Lehal",
+          "lect-6_(12:45-1:30)": "Sandeep Bassi",
+          "lect-8_(2:15-3:00)": "JASDEEP SINGH"
+        },
+        {
+          "feild_name": "Room",
+          "lect-3_(10:30-11:15)": "LAB-IV",
+          "lect-4_(11:15-12:00)": "R-33",
+          "lect-5_(12:00-12:45)": "R-33",
+          "lect-6_(12:45-1:30)": "LAB-CYBER",
+          "lect-8_(2:15-3:00)": "LAB-CYBER"
+        },
+        {
+          "feild_name": "Day",
+          "lect-3_(10:30-11:15)": "(1-3)",
+          "lect-4_(11:15-12:00)": "(1-6)",
+          "lect-5_(12:00-12:45)": "(1-6)",
+          "lect-6_(12:45-1:30)": "(1-3)",
+          "lect-8_(2:15-3:00)": "(1-3)"
+        },
+        {
+          "feild_name": "subject",
+          "lect-3_(10:30-11:15)": "PROJECT",
+          "lect-6_(12:45-1:30)": "GRAPHICS LAB",
+          "lect-8_(2:15-3:00)": "PROJECT"
+        },
+        {
+          "feild_name": "Code",
+          "lect-3_(10:30-11:15)": "BCA06004L(G3)",
+          "lect-6_(12:45-1:30)": "BCA06003L(G2)",
+          "lect-8_(2:15-3:00)": "BCA06004L(G4)"
+        },
+        {
+          "feild_name": "Teacher",
+          "lect-3_(10:30-11:15)": "Heena",
+          "lect-6_(12:45-1:30)": "Dr. MS Lehal",
+          "lect-8_(2:15-3:00)": "Sonu Gupta"
+        },
+        {
+          "feild_name": "Room",
+          "lect-3_(10:30-11:15)": "LAB-CYBER",
+          "lect-6_(12:45-1:30)": "LAB-IV",
+          "lect-8_(2:15-3:00)": "LAB-CYBER"
+        },
+        {
+          "feild_name": "Day",
+          "lect-3_(10:30-11:15)": "(4-6)",
+          "lect-6_(12:45-1:30)": "(4-6)",
+          "lect-8_(2:15-3:00)": "(4-6)"
+        }
+      ],
+      "entries_count": 10
+    },
+    {
+      "program_name": "BDMM-II",
+      "program_ids": [],
+      "teachers": [],
+      "lectures": [],
+      "field_codes": [],
+      "other_unique_rows": [
+        {
+          "feild_name": "subject",
+          "lect-1_(9:00-9:45)": "Drawing & Colour–II",
+          "lect-2_(9:45-10:30)": "Introduction to 3D–II",
+          "lect-3_(10:30-11:15)": "Pbi",
+          "lect-4_(11:15-12:00)": "Drug Abuse\n",
+          "lect-5_(12:00-12:45)": "Workshop–II\n",
+          "lect-6_(12:45-1:30)": "Adobe Illustrator",
+          "lect-7_(1:30-2:15)": "Comm. Skills"
+        },
+        {
+          "feild_name": "Code",
+          "lect-1_(9:00-9:45)": "BDM02001L",
+          "lect-2_(9:45-10:30)": "BDM02002L",
+          "lect-3_(10:30-11:15)": "PBL602",
+          "lect-4_(11:15-12:00)": "SOA-105",
+          "lect-5_(12:00-12:45)": "BDM02004L",
+          "lect-6_(12:45-1:30)": "BDM02005L",
+          "lect-7_(1:30-2:15)": "ENL-ENP122"
+        },
+        {
+          "feild_name": "Teacher",
+          "lect-1_(9:00-9:45)": "Sonia",
+          "lect-2_(9:45-10:30)": "Sonali",
+          "lect-3_(10:30-11:15)": "NEW-II",
+          "lect-4_(11:15-12:00)": "NEW-I",
+          "lect-5_(12:00-12:45)": "Onkar",
+          "lect-6_(12:45-1:30)": "Annie",
+          "lect-7_(1:30-2:15)": "NEW-III"
+        },
+        {
+          "feild_name": "Room",
+          "lect-1_(9:00-9:45)": "LAB-FA",
+          "lect-2_(9:45-10:30)": "LAB-MM",
+          "lect-3_(10:30-11:15)": "R-NR4",
+          "lect-4_(11:15-12:00)": "R-52",
+          "lect-5_(12:00-12:45)": "LAB-ANM",
+          "lect-6_(12:45-1:30)": "LAB-MM",
+          "lect-7_(1:30-2:15)": "R-NR4"
+        },
+        {
+          "feild_name": "Day",
+          "lect-1_(9:00-9:45)": "(1-3)",
+          "lect-2_(9:45-10:30)": "(4-6)",
+          "lect-3_(10:30-11:15)": "(4-6)",
+          "lect-4_(11:15-12:00)": "(1-2)",
+          "lect-5_(12:00-12:45)": "(1-3)",
+          "lect-6_(12:45-1:30)": "(1-3)",
+          "lect-7_(1:30-2:15)": "(1-3)"
+        },
+        {
+          "feild_name": "subject",
+          "lect-3_(10:30-11:15)": "Basic Pbi",
+          "lect-5_(12:00-12:45)": "Theory of Media\n"
+        },
+        {
+          "feild_name": "Code",
+          "lect-3_(10:30-11:15)": "PBL612",
+          "lect-5_(12:00-12:45)": "BDM02003T"
+        },
+        {
+          "feild_name": "Teacher",
+          "lect-3_(10:30-11:15)": "NEW-II",
+          "lect-5_(12:00-12:45)": "Rajat Kaur"
+        },
+        {
+          "feild_name": "Room",
+          "lect-3_(10:30-11:15)": "R-12",
+          "lect-5_(12:00-12:45)": "R-30"
+        },
+        {
+          "feild_name": "Day",
+          "lect-3_(10:30-11:15)": "(1-6)",
+          "lect-5_(12:00-12:45)": "(4-6)"
+        }
+      ],
+      "entries_count": 10
+    },
+    {
+      "program_name": "BDMM-IV",
+      "program_ids": [],
+      "teachers": [],
+      "lectures": [],
+      "field_codes": [],
+      "other_unique_rows": [
+        {
+          "feild_name": "subject",
+          "lect-1_(9:00-9:45)": "Java Script",
+          "lect-2_(9:45-10:30)": "AI and Cloud Computing",
+          "lect-3_(10:30-11:15)": "Project– II",
+          "lect-5_(12:00-12:45)": "Film Appreciation–II",
+          "lect-6_(12:45-1:30)": "FLASH",
+          "lect-7_(1:30-2:15)": "EVS"
+        },
+        {
+          "feild_name": "Code",
+          "lect-1_(9:00-9:45)": "BDM04004L",
+          "lect-2_(9:45-10:30)": "BDM04005L",
+          "lect-3_(10:30-11:15)": "BDM04008L",
+          "lect-5_(12:00-12:45)": "BDM04007L",
+          "lect-6_(12:45-1:30)": "BDM04002T",
+          "lect-7_(1:30-2:15)": "EVS-221"
+        },
+        {
+          "feild_name": "Teacher",
+          "lect-1_(9:00-9:45)": "MEGHA",
+          "lect-2_(9:45-10:30)": "Rachana",
+          "lect-3_(10:30-11:15)": "Onkar",
+          "lect-5_(12:00-12:45)": "Sonali",
+          "lect-6_(12:45-1:30)": "Rachana",
+          "lect-7_(1:30-2:15)": "Dr. Jaswinder Kaur"
+        },
+        {
+          "feild_name": "Room",
+          "lect-1_(9:00-9:45)": "LAB-I",
+          "lect-2_(9:45-10:30)": "LAB-ANM",
+          "lect-3_(10:30-11:15)": "LAB-ANM",
+          "lect-5_(12:00-12:45)": "LAB-ANM",
+          "lect-6_(12:45-1:30)": "LAB-ANM",
+          "lect-7_(1:30-2:15)": "R-31"
+        },
+        {
+          "feild_name": "Day",
+          "lect-1_(9:00-9:45)": "(1-6)",
+          "lect-2_(9:45-10:30)": "(1-6)",
+          "lect-3_(10:30-11:15)": "(1-6)",
+          "lect-5_(12:00-12:45)": "(1-3)",
+          "lect-6_(12:45-1:30)": "(1-3)",
+          "lect-7_(1:30-2:15)": "(4-6)"
+        },
+        {
+          "feild_name": "subject",
+          "lect-5_(12:00-12:45)": "Film Appreciation–II",
+          "lect-6_(12:45-1:30)": "FLASH"
+        },
+        {
+          "feild_name": "Code",
+          "lect-5_(12:00-12:45)": "BDM04006T",
+          "lect-6_(12:45-1:30)": "BDM04003L"
+        },
+        {
+          "feild_name": "Teacher",
+          "lect-5_(12:00-12:45)": "Sonali",
+          "lect-6_(12:45-1:30)": "Rachana"
+        },
+        {
+          "feild_name": "Room",
+          "lect-5_(12:00-12:45)": "R-39",
+          "lect-6_(12:45-1:30)": "LAB-ANM"
+        },
+        {
+          "feild_name": "Day",
+          "lect-5_(12:00-12:45)": "(4-6)",
+          "lect-6_(12:45-1:30)": "(4-6)"
+        }
+      ],
+      "entries_count": 10
+    },
+    {
+      "program_name": "BDMM-VI",
+      "program_ids": [],
+      "teachers": [],
+      "lectures": [],
+      "field_codes": [],
+      "other_unique_rows": [
+        {
+          "feild_name": "subject",
+          "lect-2_(9:45-10:30)": "3D Studio Max",
+          "lect-4_(11:15-12:00)": "Workshop–IV",
+          "lect-5_(12:00-12:45)": "Project – IV",
+          "lect-6_(12:45-1:30)": "Drawing & Illustration",
+          "lect-7_(1:30-2:15)": "Introduction to 3D"
+        },
+        {
+          "feild_name": "Code",
+          "lect-2_(9:45-10:30)": "6002L",
+          "lect-4_(11:15-12:00)": "6005L",
+          "lect-5_(12:00-12:45)": "6007L",
+          "lect-6_(12:45-1:30)": "6004L",
+          "lect-7_(1:30-2:15)": "6003T"
+        },
+        {
+          "feild_name": "Teacher",
+          "lect-2_(9:45-10:30)": "Sonali",
+          "lect-4_(11:15-12:00)": "Onkar",
+          "lect-5_(12:00-12:45)": "Annie",
+          "lect-6_(12:45-1:30)": "Sonia",
+          "lect-7_(1:30-2:15)": "Sonali"
+        },
+        {
+          "feild_name": "Room",
+          "lect-2_(9:45-10:30)": "LAB-MM",
+          "lect-4_(11:15-12:00)": "LAB-ANM",
+          "lect-5_(12:00-12:45)": "LAB-SKILL",
+          "lect-6_(12:45-1:30)": "LAB-FA",
+          "lect-7_(1:30-2:15)": "LAB-SKILL"
+        },
+        {
+          "feild_name": "Day",
+          "lect-2_(9:45-10:30)": "(1-3)",
+          "lect-4_(11:15-12:00)": "(1-3)",
+          "lect-5_(12:00-12:45)": "(1-3)",
+          "lect-6_(12:45-1:30)": "(1-6)",
+          "lect-7_(1:30-2:15)": "(1-3)"
+        },
+        {
+          "feild_name": "subject",
+          "lect-4_(11:15-12:00)": "Blender"
+        },
+        {
+          "feild_name": "Code",
+          "lect-4_(11:15-12:00)": "6006L"
+        },
+        {
+          "feild_name": "Teacher",
+          "lect-4_(11:15-12:00)": "Onkar"
+        },
+        {
+          "feild_name": "Room",
+          "lect-4_(11:15-12:00)": "LAB-ANM"
+        },
+        {
+          "feild_name": "Day",
+          "lect-4_(11:15-12:00)": "(4-6)"
+        }
+      ],
+      "entries_count": 10
+    },
+    {
+      "program_name": "BDMM-VIII",
+      "program_ids": [],
+      "teachers": [],
+      "lectures": [],
+      "field_codes": [],
+      "other_unique_rows": [
+        {
+          "feild_name": "subject",
+          "lect-3_(10:30-11:15)": "3D Human Modeling",
+          "lect-4_(11:15-12:00)": "Motion Graphics",
+          "lect-6_(12:45-1:30)": "3D & Animation",
+          "lect-8_(2:15-3:00)": "Industrial Training"
+        },
+        {
+          "feild_name": "Code",
+          "lect-3_(10:30-11:15)": "BDMM-703",
+          "lect-4_(11:15-12:00)": "BDMM-702",
+          "lect-6_(12:45-1:30)": "BDMM-701",
+          "lect-8_(2:15-3:00)": "BDMM-704"
+        },
+        {
+          "feild_name": "Teacher",
+          "lect-3_(10:30-11:15)": "Sonali",
+          "lect-4_(11:15-12:00)": "Annie",
+          "lect-6_(12:45-1:30)": "Onkar",
+          "lect-8_(2:15-3:00)": "Onkar"
+        },
+        {
+          "feild_name": "Room",
+          "lect-3_(10:30-11:15)": "LAB-PT",
+          "lect-4_(11:15-12:00)": "LAB-MM",
+          "lect-6_(12:45-1:30)": "LAB-MM",
+          "lect-8_(2:15-3:00)": "LAB-SKILL"
+        },
+        {
+          "feild_name": "Day",
+          "lect-3_(10:30-11:15)": "(4-6)",
+          "lect-4_(11:15-12:00)": "(1-6)",
+          "lect-6_(12:45-1:30)": "(4-6)",
+          "lect-8_(2:15-3:00)": "(4-6)"
+        }
+      ],
+      "entries_count": 5
+    },
+    {
+      "program_name": "BSc(IT)\nSemester-II",
+      "program_ids": [],
+      "teachers": [],
+      "lectures": [],
+      "field_codes": [],
+      "other_unique_rows": [
+        {
+          "feild_name": "subject",
+          "lect-1_(9:00-9:45)": "Drug Abuse",
+          "lect-2_(9:45-10:30)": "C-lab",
+          "lect-3_(10:30-11:15)": "Pbi",
+          "lect-4_(11:15-12:00)": "Electronics",
+          "lect-5_(12:00-12:45)": "NM",
+          "lect-6_(12:45-1:30)": "Programming in C",
+          "lect-7_(1:30-2:15)": "Comm. Skills"
+        },
+        {
+          "feild_name": "Code",
+          "lect-1_(9:00-9:45)": "SOA-105",
+          "lect-2_(9:45-10:30)": "BSC-202",
+          "lect-3_(10:30-11:15)": "PBL602",
+          "lect-4_(11:15-12:00)": "BSC-203",
+          "lect-5_(12:00-12:45)": "BSC-204",
+          "lect-6_(12:45-1:30)": "BSC-201",
+          "lect-7_(1:30-2:15)": "ENL-ENP122"
+        },
+        {
+          "feild_name": "Teacher",
+          "lect-1_(9:00-9:45)": "NEW-I",
+          "lect-2_(9:45-10:30)": "Rakhi",
+          "lect-3_(10:30-11:15)": "NEW-II",
+          "lect-4_(11:15-12:00)": "Dr. Sandeep Singh",
+          "lect-5_(12:00-12:45)": "Vaishali Gupta",
+          "lect-6_(12:45-1:30)": "SK Anand",
+          "lect-7_(1:30-2:15)": "NEW-III"
+        },
+        {
+          "feild_name": "Room",
+          "lect-1_(9:00-9:45)": "R-NR4",
+          "lect-2_(9:45-10:30)": "LAB-III",
+          "lect-3_(10:30-11:15)": "R-NR4",
+          "lect-4_(11:15-12:00)": "R-NR4",
+          "lect-5_(12:00-12:45)": "R-NR4",
+          "lect-6_(12:45-1:30)": "R-NR4",
+          "lect-7_(1:30-2:15)": "R-NR4"
+        },
+        {
+          "feild_name": "Day",
+          "lect-1_(9:00-9:45)": "(5-6)",
+          "lect-2_(9:45-10:30)": "(1-3)",
+          "lect-3_(10:30-11:15)": "(1-3)",
+          "lect-4_(11:15-12:00)": "(1-6)",
+          "lect-5_(12:00-12:45)": "(1-6)",
+          "lect-6_(12:45-1:30)": "(1-6)",
+          "lect-7_(1:30-2:15)": "(4-6)"
+        },
+        {
+          "feild_name": "subject",
+          "lect-3_(10:30-11:15)": "Basic Pbi"
+        },
+        {
+          "feild_name": "Code",
+          "lect-3_(10:30-11:15)": "PBL612"
+        },
+        {
+          "feild_name": "Teacher",
+          "lect-3_(10:30-11:15)": "NEW-II"
+        },
+        {
+          "feild_name": "Room",
+          "lect-3_(10:30-11:15)": "R-12"
+        },
+        {
+          "feild_name": "Day",
+          "lect-3_(10:30-11:15)": "(1-6)"
+        }
+      ],
+      "entries_count": 10
+    },
+    {
+      "program_name": "BSc(IT)\nSemester-IV",
+      "program_ids": [],
+      "teachers": [],
+      "lectures": [],
+      "field_codes": [],
+      "other_unique_rows": [
+        {
+          "feild_name": "subject",
+          "lect-1_(9:00-9:45)": "EVS",
+          "lect-2_(9:45-10:30)": "Human Computer Interaction\n",
+          "lect-3_(10:30-11:15)": "DBMS",
+          "lect-4_(11:15-12:00)": "OS LAB",
+          "lect-5_(12:00-12:45)": "OS",
+          "lect-6_(12:45-1:30)": "C++",
+          "lect-7_(1:30-2:15)": "Computer Graphics",
+          "lect-8_(2:15-3:00)": "C++ LAB"
+        },
+        {
+          "feild_name": "Code",
+          "lect-1_(9:00-9:45)": "EVS-221",
+          "lect-2_(9:45-10:30)": "BSC-409",
+          "lect-3_(10:30-11:15)": "BSC-405",
+          "lect-4_(11:15-12:00)": "BSC-404",
+          "lect-5_(12:00-12:45)": "BSC-403",
+          "lect-6_(12:45-1:30)": "BSC-401",
+          "lect-7_(1:30-2:15)": "BSC-407",
+          "lect-8_(2:15-3:00)": "BSC-402"
+        },
+        {
+          "feild_name": "Teacher",
+          "lect-1_(9:00-9:45)": "Dr. Jaswinder Kaur",
+          "lect-2_(9:45-10:30)": "Ravinder Kaur",
+          "lect-3_(10:30-11:15)": "Sonu Gupta",
+          "lect-4_(11:15-12:00)": "Karitika",
+          "lect-5_(12:00-12:45)": "Karitika",
+          "lect-6_(12:45-1:30)": "Heena",
+          "lect-7_(1:30-2:15)": "Dr. MS Lehal",
+          "lect-8_(2:15-3:00)": "Vaishali Gupta"
+        },
+        {
+          "feild_name": "Room",
+          "lect-1_(9:00-9:45)": "R-32",
+          "lect-2_(9:45-10:30)": "R-32",
+          "lect-3_(10:30-11:15)": "R-32",
+          "lect-4_(11:15-12:00)": "LAB-PT",
+          "lect-5_(12:00-12:45)": "R-32",
+          "lect-6_(12:45-1:30)": "R-32",
+          "lect-7_(1:30-2:15)": "R-32",
+          "lect-8_(2:15-3:00)": "LAB-II"
+        },
+        {
+          "feild_name": "Day",
+          "lect-1_(9:00-9:45)": "(4-6)",
+          "lect-2_(9:45-10:30)": "(1-6)",
+          "lect-3_(10:30-11:15)": "(1-6)",
+          "lect-4_(11:15-12:00)": "(1-3)",
+          "lect-5_(12:00-12:45)": "(1-6)\n",
+          "lect-6_(12:45-1:30)": "(1-6)",
+          "lect-7_(1:30-2:15)": "(1-6)",
+          "lect-8_(2:15-3:00)": "(1-3)"
+        },
+        {
+          "feild_name": "subject",
+          "lect-8_(2:15-3:00)": "DBMS LAB"
+        },
+        {
+          "feild_name": "Code",
+          "lect-8_(2:15-3:00)": "BSC-406"
+        },
+        {
+          "feild_name": "Teacher",
+          "lect-8_(2:15-3:00)": "Heena"
+        },
+        {
+          "feild_name": "Room",
+          "lect-8_(2:15-3:00)": "LAB-II"
+        },
+        {
+          "feild_name": "Day",
+          "lect-8_(2:15-3:00)": "(4-6)"
+        }
+      ],
+      "entries_count": 10
+    },
+    {
+      "program_name": "BSc(IT)\nSemester-VI",
+      "program_ids": [],
+      "teachers": [],
+      "lectures": [],
+      "field_codes": [],
+      "other_unique_rows": [
+        {
+          "feild_name": "subject",
+          "lect-2_(9:45-10:30)": "Project",
+          "lect-3_(10:30-11:15)": "NOS",
+          "lect-5_(12:00-12:45)": "NOS PRACTICAL"
+        },
+        {
+          "feild_name": "Code",
+          "lect-2_(9:45-10:30)": "BIT06006L",
+          "lect-3_(10:30-11:15)": "BIT06003T",
+          "lect-5_(12:00-12:45)": "BIT06004L"
+        },
+        {
+          "feild_name": "Teacher",
+          "lect-2_(9:45-10:30)": "MS Bhatia",
+          "lect-3_(10:30-11:15)": "MS Bhatia",
+          "lect-5_(12:00-12:45)": "MS Bhatia"
+        },
+        {
+          "feild_name": "Room",
+          "lect-2_(9:45-10:30)": "LAB-V",
+          "lect-3_(10:30-11:15)": "R-30",
+          "lect-5_(12:00-12:45)": "LAB-V"
+        },
+        {
+          "feild_name": "Day",
+          "lect-2_(9:45-10:30)": "(4-6)",
+          "lect-3_(10:30-11:15)": "(1-6)",
+          "lect-5_(12:00-12:45)": "(1-3)"
+        }
+      ],
+      "entries_count": 5
+    },
+    {
+      "program_name": "Certificate in Computer Animation -II",
+      "program_ids": [],
+      "teachers": [],
+      "lectures": [],
+      "field_codes": [],
+      "other_unique_rows": [
+        {
+          "feild_name": "subject",
+          "lect-2_(9:45-10:30)": "COREL",
+          "lect-3_(10:30-11:15)": "2D",
+          "lect-4_(11:15-12:00)": "MULTIMEDIA TECH."
+        },
+        {
+          "feild_name": "Code",
+          "lect-2_(9:45-10:30)": "DAN02003L",
+          "lect-3_(10:30-11:15)": "DAN02002T",
+          "lect-4_(11:15-12:00)": "DAN02001T"
+        },
+        {
+          "feild_name": "Teacher",
+          "lect-2_(9:45-10:30)": "Sonu Gupta",
+          "lect-3_(10:30-11:15)": "Karitika",
+          "lect-4_(11:15-12:00)": "MEGHA"
+        },
+        {
+          "feild_name": "Room",
+          "lect-2_(9:45-10:30)": "LAB-II",
+          "lect-3_(10:30-11:15)": "R-NR5",
+          "lect-4_(11:15-12:00)": "R-NR5"
+        },
+        {
+          "feild_name": "Day",
+          "lect-2_(9:45-10:30)": "(1-3)",
+          "lect-3_(10:30-11:15)": "(1-6)",
+          "lect-4_(11:15-12:00)": "(1-6)"
+        },
+        {
+          "feild_name": "subject",
+          "lect-2_(9:45-10:30)": "FLASH"
+        },
+        {
+          "feild_name": "Code",
+          "lect-2_(9:45-10:30)": "DAN02004L"
+        },
+        {
+          "feild_name": "Teacher",
+          "lect-2_(9:45-10:30)": "TARANDEEP SAINI"
+        },
+        {
+          "feild_name": "Room",
+          "lect-2_(9:45-10:30)": "LAB-II"
+        },
+        {
+          "feild_name": "Day",
+          "lect-2_(9:45-10:30)": "(4-6)"
+        }
+      ],
+      "entries_count": 10
+    },
+    {
+      "program_name": "Certificate in Computer Application -II",
+      "program_ids": [],
+      "teachers": [],
+      "lectures": [],
+      "field_codes": [],
+      "other_unique_rows": [
+        {
+          "feild_name": "subject",
+          "lect-2_(9:45-10:30)": "PC COMPUTING-II",
+          "lect-3_(10:30-11:15)": "DBMS",
+          "lect-5_(12:00-12:45)": "DBMS LAB"
+        },
+        {
+          "feild_name": "Code",
+          "lect-2_(9:45-10:30)": "DCA02003T",
+          "lect-3_(10:30-11:15)": "DCA02001T",
+          "lect-5_(12:00-12:45)": "DCA02002L"
+        },
+        {
+          "feild_name": "Teacher",
+          "lect-2_(9:45-10:30)": "Karanbir S. Kler",
+          "lect-3_(10:30-11:15)": "Rakhi",
+          "lect-5_(12:00-12:45)": "TARANDEEP SAINI"
+        },
+        {
+          "feild_name": "Room",
+          "lect-2_(9:45-10:30)": "R-38",
+          "lect-3_(10:30-11:15)": "R-38",
+          "lect-5_(12:00-12:45)": "LAB-VI"
+        },
+        {
+          "feild_name": "Day",
+          "lect-2_(9:45-10:30)": "(1-6)",
+          "lect-3_(10:30-11:15)": "(1-6)",
+          "lect-5_(12:00-12:45)": "(1-3)"
+        },
+        {
+          "feild_name": "subject",
+          "lect-5_(12:00-12:45)": "PC-II LAB"
+        },
+        {
+          "feild_name": "Code",
+          "lect-5_(12:00-12:45)": "DCA02004L"
+        },
+        {
+          "feild_name": "Teacher",
+          "lect-5_(12:00-12:45)": "Karanbir S. Kler"
+        },
+        {
+          "feild_name": "Room",
+          "lect-5_(12:00-12:45)": "LAB-VI"
+        },
+        {
+          "feild_name": "Day",
+          "lect-5_(12:00-12:45)": "(4-6)"
+        }
+      ],
+      "entries_count": 10
+    },
+    {
+      "program_name": "Certificate in Computer Maintenance -II",
+      "program_ids": [],
+      "teachers": [],
+      "lectures": [],
+      "field_codes": [],
+      "other_unique_rows": [
+        {
+          "feild_name": "subject",
+          "lect-3_(10:30-11:15)": "NETWORK MGT.",
+          "lect-5_(12:00-12:45)": "SOFTWARE INSTALL.",
+          "lect-6_(12:45-1:30)": "N-W MGT"
+        },
+        {
+          "feild_name": "Code",
+          "lect-3_(10:30-11:15)": "DCM02001T",
+          "lect-5_(12:00-12:45)": "DCM02003L",
+          "lect-6_(12:45-1:30)": "DCM02004L"
+        },
+        {
+          "feild_name": "Teacher",
+          "lect-3_(10:30-11:15)": "Karanbir S. Kler",
+          "lect-5_(12:00-12:45)": "Jaspreet Saini",
+          "lect-6_(12:45-1:30)": "Rakhi"
+        },
+        {
+          "feild_name": "Room",
+          "lect-3_(10:30-11:15)": "R-43",
+          "lect-5_(12:00-12:45)": "LAB-IV",
+          "lect-6_(12:45-1:30)": "LAB-V"
+        },
+        {
+          "feild_name": "Day",
+          "lect-3_(10:30-11:15)": "(1-6)",
+          "lect-5_(12:00-12:45)": "(4-6)",
+          "lect-6_(12:45-1:30)": "(1-3)"
+        },
+        {
+          "feild_name": "subject",
+          "lect-6_(12:45-1:30)": "WORKSHOP"
+        },
+        {
+          "feild_name": "Code",
+          "lect-6_(12:45-1:30)": "DCM02002L"
+        },
+        {
+          "feild_name": "Teacher",
+          "lect-6_(12:45-1:30)": "Karitika"
+        },
+        {
+          "feild_name": "Room",
+          "lect-6_(12:45-1:30)": "LAB-V"
+        },
+        {
+          "feild_name": "Day",
+          "lect-6_(12:45-1:30)": "(4-6)"
+        }
+      ],
+      "entries_count": 10
+    },
+    {
+      "program_name": "M.Voc (WT&MM)-II",
+      "program_ids": [],
+      "teachers": [],
+      "lectures": [],
+      "field_codes": [],
+      "other_unique_rows": [
+        {
+          "feild_name": "subject",
+          "lect-2_(9:45-10:30)": "SCRIPTING LAB",
+          "lect-3_(10:30-11:15)": "VISUAL EFFECTS",
+          "lect-4_(11:15-12:00)": "DIGITAL MEDIA LAWS",
+          "lect-5_(12:00-12:45)": "STOP MOTION"
+        },
+        {
+          "feild_name": "Code",
+          "lect-2_(9:45-10:30)": "MWT02004L",
+          "lect-3_(10:30-11:15)": "MWT02002L",
+          "lect-4_(11:15-12:00)": "MWT02005T",
+          "lect-5_(12:00-12:45)": "MWT02003L"
+        },
+        {
+          "feild_name": "Teacher",
+          "lect-2_(9:45-10:30)": "Karitika",
+          "lect-3_(10:30-11:15)": "Sonali",
+          "lect-4_(11:15-12:00)": "Ratnakar",
+          "lect-5_(12:00-12:45)": "Annie"
+        },
+        {
+          "feild_name": "Room",
+          "lect-2_(9:45-10:30)": "LAB-SKILL",
+          "lect-3_(10:30-11:15)": "LAB-MM",
+          "lect-4_(11:15-12:00)": "R-33",
+          "lect-5_(12:00-12:45)": "LAB-MM"
+        },
+        {
+          "feild_name": "Day",
+          "lect-2_(9:45-10:30)": "(1-3)",
+          "lect-3_(10:30-11:15)": "(1-3)",
+          "lect-4_(11:15-12:00)": "(1-3)",
+          "lect-5_(12:00-12:45)": "(4-6)"
+        },
+        {
+          "feild_name": "subject",
+          "lect-2_(9:45-10:30)": "VIDEO EDIT"
+        },
+        {
+          "feild_name": "Code",
+          "lect-2_(9:45-10:30)": "MWT02001L"
+        },
+        {
+          "feild_name": "Teacher",
+          "lect-2_(9:45-10:30)": "Annie"
+        },
+        {
+          "feild_name": "Room",
+          "lect-2_(9:45-10:30)": "LAB-III"
+        },
+        {
+          "feild_name": "Day",
+          "lect-2_(9:45-10:30)": "(4-6)"
+        }
+      ],
+      "entries_count": 10
+    },
+    {
+      "program_name": "M.Voc (WT&MM)-IV",
+      "program_ids": [],
+      "teachers": [],
+      "lectures": [],
+      "field_codes": [],
+      "other_unique_rows": [
+        {
+          "feild_name": "subject",
+          "lect-3_(10:30-11:15)": "ADVANCED 3D",
+          "lect-4_(11:15-12:00)": "DIGITAL PAINTING",
+          "lect-5_(12:00-12:45)": "DIGITAL PORTFOLIO",
+          "lect-6_(12:45-1:30)": "INTERNSHIP"
+        },
+        {
+          "feild_name": "Code",
+          "lect-3_(10:30-11:15)": "MWT04001L",
+          "lect-4_(11:15-12:00)": "MWT04002L",
+          "lect-5_(12:00-12:45)": "MWT04003L",
+          "lect-6_(12:45-1:30)": "MWT04004L"
+        },
+        {
+          "feild_name": "Teacher",
+          "lect-3_(10:30-11:15)": "Annie",
+          "lect-4_(11:15-12:00)": "Sonali",
+          "lect-5_(12:00-12:45)": "Onkar",
+          "lect-6_(12:45-1:30)": "Rakhi"
+        },
+        {
+          "feild_name": "Room",
+          "lect-3_(10:30-11:15)": "LAB-SD",
+          "lect-4_(11:15-12:00)": "LAB-SKILL",
+          "lect-5_(12:00-12:45)": "LAB-SKILL",
+          "lect-6_(12:45-1:30)": "LAB-SKILL"
+        },
+        {
+          "feild_name": "Day",
+          "lect-3_(10:30-11:15)": "(1-6)",
+          "lect-4_(11:15-12:00)": "(1-6)",
+          "lect-5_(12:00-12:45)": "(4-6)",
+          "lect-6_(12:45-1:30)": "(4-6)"
+        }
+      ],
+      "entries_count": 5
+    },
+    {
+      "program_name": "MSc(IT) Semester-II",
+      "program_ids": [],
+      "teachers": [],
+      "lectures": [],
+      "field_codes": [],
+      "other_unique_rows": [
+        {
+          "feild_name": "subject",
+          "lect-2_(9:45-10:30)": "Fuzzy Systems",
+          "lect-3_(10:30-11:15)": "Network Design and Performance Analysis",
+          "lect-4_(11:15-12:00)": "Image Processing",
+          "lect-5_(12:00-12:45)": "Distributed Databases",
+          "lect-6_(12:45-1:30)": "Programming Lab – II",
+          "lect-7_(1:30-2:15)": "Mobile Computing"
+        },
+        {
+          "feild_name": "Code",
+          "lect-2_(9:45-10:30)": "MIT02004T",
+          "lect-3_(10:30-11:15)": "MIT02005T",
+          "lect-4_(11:15-12:00)": "MIT02003T",
+          "lect-5_(12:00-12:45)": "MIT02002T",
+          "lect-6_(12:45-1:30)": "MIT02006L",
+          "lect-7_(1:30-2:15)": "MIT02001T"
+        },
+        {
+          "feild_name": "Teacher",
+          "lect-2_(9:45-10:30)": "Navneet Kaur",
+          "lect-3_(10:30-11:15)": "Sandeep Bassi",
+          "lect-4_(11:15-12:00)": "Ravinder Kaur",
+          "lect-5_(12:00-12:45)": "Ratnakar",
+          "lect-6_(12:45-1:30)": "Jaspreet Saini",
+          "lect-7_(1:30-2:15)": "Dr. Sandeep Singh"
+        },
+        {
+          "feild_name": "Room",
+          "lect-2_(9:45-10:30)": "R-34",
+          "lect-3_(10:30-11:15)": "R-34",
+          "lect-4_(11:15-12:00)": "R-34",
+          "lect-5_(12:00-12:45)": "R-34",
+          "lect-6_(12:45-1:30)": "LAB-R&D",
+          "lect-7_(1:30-2:15)": "R-34"
+        },
+        {
+          "feild_name": "Day",
+          "lect-2_(9:45-10:30)": "(1-6)",
+          "lect-3_(10:30-11:15)": "(1-6)",
+          "lect-4_(11:15-12:00)": "(1-6)",
+          "lect-5_(12:00-12:45)": "(1-6)",
+          "lect-6_(12:45-1:30)": "(1-6)",
+          "lect-7_(1:30-2:15)": "(1-6)"
+        }
+      ],
+      "entries_count": 5
+    },
+    {
+      "program_name": "MSc(IT) Semester-IV",
+      "program_ids": [],
+      "teachers": [],
+      "lectures": [],
+      "field_codes": [],
+      "other_unique_rows": [
+        {
+          "feild_name": "subject",
+          "lect-2_(9:45-10:30)": "Advanced Java Technology",
+          "lect-3_(10:30-11:15)": "Network Security",
+          "lect-4_(11:15-12:00)": "Programming Lab –IV (Advanced Java Technology)",
+          "lect-6_(12:45-1:30)": "Artificial Neural Network",
+          "lect-7_(1:30-2:15)": "Project Work"
+        },
+        {
+          "feild_name": "Code",
+          "lect-2_(9:45-10:30)": "MIT04001T",
+          "lect-3_(10:30-11:15)": "MIT04002T",
+          "lect-4_(11:15-12:00)": "MIT04004L",
+          "lect-6_(12:45-1:30)": "MIT04003T",
+          "lect-7_(1:30-2:15)": "MIT04005L"
+        },
+        {
+          "feild_name": "Teacher",
+          "lect-2_(9:45-10:30)": "Dr. MS Lehal",
+          "lect-3_(10:30-11:15)": "Dr. Daljit Kaur",
+          "lect-4_(11:15-12:00)": "Dr. MS Lehal",
+          "lect-6_(12:45-1:30)": "MS Bhatia",
+          "lect-7_(1:30-2:15)": "SK Anand"
+        },
+        {
+          "feild_name": "Room",
+          "lect-2_(9:45-10:30)": "R-33",
+          "lect-3_(10:30-11:15)": "R-33",
+          "lect-4_(11:15-12:00)": "LAB-III",
+          "lect-6_(12:45-1:30)": "R-33",
+          "lect-7_(1:30-2:15)": "LAB-III"
+        },
+        {
+          "feild_name": "Day",
+          "lect-2_(9:45-10:30)": "(1-6)",
+          "lect-3_(10:30-11:15)": "(1-6)",
+          "lect-4_(11:15-12:00)": "(1-3)",
+          "lect-6_(12:45-1:30)": "(1-6)",
+          "lect-7_(1:30-2:15)": "(4-6)"
+        }
+      ],
+      "entries_count": 5
+    },
+    {
+      "program_name": "PGDCA-II",
+      "program_ids": [],
+      "teachers": [],
+      "lectures": [],
+      "field_codes": [],
+      "other_unique_rows": [
+        {
+          "feild_name": "subject",
+          "lect-2_(9:45-10:30)": "C LAB",
+          "lect-4_(11:15-12:00)": "C",
+          "lect-5_(12:00-12:45)": "N-W",
+          "lect-6_(12:45-1:30)": "E-COM"
+        },
+        {
+          "feild_name": "Code",
+          "lect-2_(9:45-10:30)": "PCA02004L",
+          "lect-4_(11:15-12:00)": "PCA02003T",
+          "lect-5_(12:00-12:45)": "PCA02001T",
+          "lect-6_(12:45-1:30)": "PCA02009T"
+        },
+        {
+          "feild_name": "Teacher",
+          "lect-2_(9:45-10:30)": "TARANDEEP SAINI",
+          "lect-4_(11:15-12:00)": "Dr. Daljit Kaur",
+          "lect-5_(12:00-12:45)": "Jaspreet Saini",
+          "lect-6_(12:45-1:30)": "Sonu Gupta"
+        },
+        {
+          "feild_name": "Room",
+          "lect-2_(9:45-10:30)": "LAB-I",
+          "lect-4_(11:15-12:00)": "R-NR1",
+          "lect-5_(12:00-12:45)": "R-NR1",
+          "lect-6_(12:45-1:30)": "R-NR1"
+        },
+        {
+          "feild_name": "Day",
+          "lect-2_(9:45-10:30)": "(1-3)",
+          "lect-4_(11:15-12:00)": "(1-3)",
+          "lect-5_(12:00-12:45)": "(1-3)",
+          "lect-6_(12:45-1:30)": "(1-3)"
+        },
+        {
+          "feild_name": "subject",
+          "lect-2_(9:45-10:30)": "WEB DESIGN",
+          "lect-4_(11:15-12:00)": "E-COMM LAB",
+          "lect-5_(12:00-12:45)": "WEB LAB",
+          "lect-6_(12:45-1:30)": "N-W LAB"
+        },
+        {
+          "feild_name": "Code",
+          "lect-2_(9:45-10:30)": "PCA02005T",
+          "lect-4_(11:15-12:00)": "PCA2010L",
+          "lect-5_(12:00-12:45)": "PCA02006L",
+          "lect-6_(12:45-1:30)": "PCA02002L"
+        },
+        {
+          "feild_name": "Teacher",
+          "lect-2_(9:45-10:30)": "Rakhi",
+          "lect-4_(11:15-12:00)": "Sonu Gupta",
+          "lect-5_(12:00-12:45)": "Sandeep Bassi",
+          "lect-6_(12:45-1:30)": "Vaishali Gupta"
+        },
+        {
+          "feild_name": "Room",
+          "lect-2_(9:45-10:30)": "R-NR1",
+          "lect-4_(11:15-12:00)": "LAB-I",
+          "lect-5_(12:00-12:45)": "LAB-II",
+          "lect-6_(12:45-1:30)": "LAB-II"
+        },
+        {
+          "feild_name": "Day",
+          "lect-2_(9:45-10:30)": "(4-6)",
+          "lect-4_(11:15-12:00)": "(4-6)",
+          "lect-5_(12:00-12:45)": "(4-6)",
+          "lect-6_(12:45-1:30)": "(4-6)"
+        }
+      ],
+      "entries_count": 10
+    }
+  ]
+}

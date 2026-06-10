@@ -1,10 +1,10 @@
 "use client";
 
 import Link from "next/link";
-import { GraduationCap } from "lucide-react";
 import { authClient } from "@/lib/auth-client";
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
+import { VisitorCounter } from "@/components/visitor-counter";
 import Image from "next/image";
 
 export function Navbar() {
@@ -31,13 +31,12 @@ export function Navbar() {
   return (
     <nav className="border-b border-slate-200 bg-white sticky top-0 z-50">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="flex h-16 items-center justify-center">
+        <div className="flex h-16 items-center justify-between">
           <Link href="/" className="flex items-center gap-3">
             <div className="p-2">
-              {/* <GraduationCap className="h-6 w-6 text-white" /> */}
               <Image src={"/lkc-logo.png"} width={50} height={50} alt="logo" />
             </div>
-            <div className="flex flex-col items-center">
+            <div className="hidden sm:flex flex-col items-center">
               <span className="text-lg font-bold text-slate-900">
                 LKC Timetable
               </span>
@@ -48,6 +47,7 @@ export function Navbar() {
           </Link>
 
           <div className="flex items-center gap-4">
+            <VisitorCounter />
             {!isLoading && isAdmin && (
               <Link href="/admin">
                 <Button
