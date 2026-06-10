@@ -36,11 +36,11 @@ export function Navbar() {
             <div className="p-2">
               <Image src={"/lkc-logo.png"} width={50} height={50} alt="logo" />
             </div>
-            <div className="hidden sm:flex flex-col items-center">
-              <span className="text-lg font-bold text-slate-900">
+            <div className="flex flex-col items-center">
+              <span className="text-sm sm:text-lg font-bold text-slate-900">
                 LKC Timetable
               </span>
-              <span className="text-xs text-slate-600">
+              <span className="hidden sm:inline text-xs text-slate-600">
                 Dept. of Computer Science & IT
               </span>
             </div>
