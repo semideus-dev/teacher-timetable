@@ -1,36 +1,34 @@
 "use client";
 
-import { Navbar } from "@/components/navbar";
+import { useQuery } from "@tanstack/react-query";
+import {
+  ArrowLeft,
+  Clock,
+  Download,
+  Loader2,
+  MapPin,
+  User,
+} from "lucide-react";
+import type { ReactNode } from "react";
+import { Fragment, useMemo, useRef, useState } from "react";
 import { FilterBar } from "@/components/filter-bar";
+import { Navbar } from "@/components/navbar";
 import { ProgramCard } from "@/components/program-card";
+import { Button } from "@/components/ui/button";
 import {
   usePrograms,
-  useTeachers,
   useRooms,
+  useTeachers,
 } from "@/modules/timetable/hooks/use-timetable";
-import { useState, useMemo, Fragment, useRef } from "react";
-import type { ReactNode } from "react";
 import {
-  Loader2,
-  Clock,
-  User,
-  MapPin,
-  ArrowLeft,
-  Download,
-} from "lucide-react";
-import { useQuery } from "@tanstack/react-query";
-import { Button } from "@/components/ui/button";
-
-const LECTURE_SLOTS = [
-  "lect-1_(9:00-9:45)",
-  "lect-2_(9:45-10:30)",
-  "lect-3_(10:30-11:15)",
-  "lect-4_(11:15-12:00)",
-  "lect-5_(12:00-12:45)",
-  "lect-6_(12:45-1:30)",
-  "lect-7_(1:30-2:15)",
-  "lect-8_(2:15-3:00)",
-];
+  AttendancePills,
+  GroupLegend,
+} from "@/modules/timetable/ui/group-schedule";
+import {
+  getDisplaySubjectName,
+  getLegendGroups,
+  LECTURE_SLOTS,
+} from "@/modules/timetable/utils/group-schedule";
 
 // Normalize lecture slot format for display
 function formatLectureSlot(slot: string): ReactNode {
@@ -50,15 +48,14 @@ function formatLectureSlot(slot: string): ReactNode {
   return slot;
 }
 
-const DAYS = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
-
-function parseDayRange(dayRange: string | null): string[] {
-  if (!dayRange) return DAYS;
-  const match = dayRange.match(/\((\d+)-(\d+)\)/);
-  if (!match) return DAYS;
-  const start = Number.parseInt(match[1]);
-  const end = Number.parseInt(match[2]);
-  return DAYS.slice(start - 1, end);
+interface FilteredTimetableEntry {
+  id: string;
+  lectureSlot: string;
+  dayRange: string | null;
+  program?: { id: string; name: string } | null;
+  subject?: { id: string; name: string; code: string } | null;
+  teacher?: { id: string; name: string } | null;
+  room?: { id: string; name: string } | null;
 }
 
 export default function Home() {
@@ -90,8 +87,8 @@ export default function Home() {
       const title = showTeacherView
         ? `${teacher?.name}-timetable`
         : showRoomView
-        ? `room-${room?.name}-schedule`
-        : program?.name || "timetable";
+          ? `room-${room?.name}-schedule`
+          : program?.name || "timetable";
       link.download = `${title}.png`;
       link.href = canvas.toDataURL("image/png");
       link.click();
@@ -104,7 +101,9 @@ export default function Home() {
   };
 
   // Fetch teacher-specific timetable
-  const { data: teacherTimetable, isLoading: teacherLoading } = useQuery({
+  const { data: teacherTimetable, isLoading: teacherLoading } = useQuery<
+    FilteredTimetableEntry[] | null
+  >({
     queryKey: ["teacher-timetable", selectedTeacher],
     queryFn: async () => {
       if (!selectedTeacher || selectedTeacher === "all") return null;
@@ -116,7 +115,9 @@ export default function Home() {
   });
 
   // Fetch room-specific timetable
-  const { data: roomTimetable, isLoading: roomLoading } = useQuery({
+  const { data: roomTimetable, isLoading: roomLoading } = useQuery<
+    FilteredTimetableEntry[] | null
+  >({
     queryKey: ["room-timetable", selectedRoom],
     queryFn: async () => {
       if (!selectedRoom || selectedRoom === "all") return null;
@@ -128,7 +129,9 @@ export default function Home() {
   });
 
   // Fetch program-specific timetable
-  const { data: programTimetable, isLoading: programLoading } = useQuery({
+  const { data: programTimetable, isLoading: programLoading } = useQuery<
+    FilteredTimetableEntry[] | null
+  >({
     queryKey: ["program-timetable", selectedProgram],
     queryFn: async () => {
       if (!selectedProgram || selectedProgram === "all") return null;
@@ -180,8 +183,8 @@ export default function Home() {
     const title = showTeacherView
       ? `${teacher?.name}'s Timetable`
       : showRoomView
-      ? `Room ${room?.name} Schedule`
-      : program?.name || "Timetable";
+        ? `Room ${room?.name} Schedule`
+        : program?.name || "Timetable";
 
     return (
       <div className="min-h-screen bg-linear-to-br from-slate-50 via-blue-50/20 to-slate-100">
@@ -235,6 +238,10 @@ export default function Home() {
               </div>
             </div>
 
+            <div className="mb-4">
+              <GroupLegend groups={getLegendGroups(timetable || [])} />
+            </div>
+
             {isLoading ? (
               <div className="flex items-center justify-center py-16 bg-white/60 backdrop-blur rounded-2xl border border-slate-200 shadow-lg">
                 <Loader2 className="h-8 w-8 animate-spin text-blue-500" />
@@ -276,10 +283,10 @@ export default function Home() {
                         </tr>
                       </thead>
                       <tbody>
-                        {LECTURE_SLOTS.map((slot, slotIndex) => {
+                        {LECTURE_SLOTS.map((slot) => {
                           const entries =
                             timetable?.filter(
-                              (e: any) => e.lectureSlot === slot
+                              (entry) => entry.lectureSlot === slot,
                             ) || [];
                           if (entries.length === 0) return null;
 
@@ -309,16 +316,20 @@ export default function Home() {
                                 </td>
                               </tr>
                               {/* Entries for this slot */}
-                              {entries.map((entry: any, entryIndex: number) => (
+                              {entries.map((entry) => (
                                 <tr
-                                  key={`${slot}-${entryIndex}`}
+                                  key={entry.id}
                                   className="border-b border-slate-100 hover:bg-blue-50/30 transition-colors bg-white"
                                 >
                                   <td className="px-3 py-3 text-xs text-slate-500 font-medium">
                                     {/* Empty cell for alignment */}
                                   </td>
                                   <td className="px-3 py-3 text-sm font-semibold text-slate-900">
-                                    {entry?.subject?.name || "-"}
+                                    {entry?.subject?.name
+                                      ? getDisplaySubjectName(
+                                          entry.subject.name,
+                                        )
+                                      : "-"}
                                   </td>
                                   <td className="px-3 py-3">
                                     <span className="text-xs font-bold text-white bg-blue-500 px-2.5 py-1 rounded-full whitespace-nowrap">
@@ -336,18 +347,7 @@ export default function Home() {
                                     </td>
                                   )}
                                   <td className="px-3 py-3">
-                                    <div className="flex flex-wrap gap-1.5">
-                                      {parseDayRange(
-                                        entry?.dayRange || null
-                                      ).map((day) => (
-                                        <span
-                                          key={day}
-                                          className="rounded-lg bg-blue-600 px-2.5 py-1 text-xs font-bold text-white shadow-sm"
-                                        >
-                                          {day}
-                                        </span>
-                                      ))}
-                                    </div>
+                                    <AttendancePills entry={entry} />
                                   </td>
                                 </tr>
                               ))}
@@ -361,10 +361,11 @@ export default function Home() {
 
                 {/* Mobile Card View */}
                 <div className="md:hidden space-y-6">
-                  {LECTURE_SLOTS.map((slot, index) => {
+                  {LECTURE_SLOTS.map((slot) => {
                     const entries =
-                      timetable?.filter((e: any) => e.lectureSlot === slot) ||
-                      [];
+                      timetable?.filter(
+                        (entry) => entry.lectureSlot === slot,
+                      ) || [];
                     if (entries.length === 0) return null;
 
                     return (
@@ -387,15 +388,19 @@ export default function Home() {
 
                         {/* Entries for this slot */}
                         <div className="space-y-3 pl-2">
-                          {entries.map((entry: any, entryIndex: number) => (
+                          {entries.map((entry) => (
                             <div
-                              key={`${slot}-${entryIndex}`}
+                              key={entry.id}
                               className="rounded-xl border border-slate-200 bg-white p-4 shadow-md hover:shadow-lg transition-all"
                             >
                               <div className="space-y-3">
                                 <div className="bg-slate-50 rounded-lg p-3 border border-slate-200">
                                   <p className="text-sm font-bold text-slate-800">
-                                    {entry.subject?.name}
+                                    {entry.subject?.name
+                                      ? getDisplaySubjectName(
+                                          entry.subject.name,
+                                        )
+                                      : "Unassigned class"}
                                   </p>
                                   <p className="text-xs font-bold text-white bg-blue-600 px-2.5 py-1 rounded-md inline-block mt-1.5 shadow-sm">
                                     {entry.subject?.code}
@@ -432,16 +437,7 @@ export default function Home() {
                                     </span>
                                   </div>
                                 )}
-                                <div className="flex flex-wrap gap-1.5">
-                                  {parseDayRange(entry.dayRange).map((day) => (
-                                    <span
-                                      key={day}
-                                      className="rounded-lg bg-blue-600 px-2.5 py-1 text-xs font-bold text-white shadow-sm"
-                                    >
-                                      {day}
-                                    </span>
-                                  ))}
-                                </div>
+                                <AttendancePills entry={entry} />
                               </div>
                             </div>
                           ))}

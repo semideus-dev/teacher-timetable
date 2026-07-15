@@ -1,19 +1,29 @@
 "use client";
 
 import { useQuery } from "@tanstack/react-query";
-import { Navbar } from "@/components/navbar";
 import {
   ArrowLeft,
   Clock,
-  MapPin,
-  User,
   Download,
   Loader2,
+  MapPin,
+  User,
 } from "lucide-react";
 import Link from "next/link";
 import { useParams } from "next/navigation";
+import { useRef, useState } from "react";
+import { Navbar } from "@/components/navbar";
 import { Button } from "@/components/ui/button";
-import { useState, useRef } from "react";
+import { GroupLegend } from "@/modules/timetable/ui/group-schedule";
+import {
+  DAYS,
+  getDisplaySubjectName,
+  getLegendGroups,
+  getSessionVisual,
+  getSlotDaySessions,
+  LECTURE_SLOTS,
+  type SessionScope,
+} from "@/modules/timetable/utils/group-schedule";
 
 interface TimetableEntry {
   id: string;
@@ -24,36 +34,84 @@ interface TimetableEntry {
   room: { id: string; name: string } | null;
 }
 
-const LECTURE_SLOTS = [
-  "lect-1_(9:00-9:45)",
-  "lect-2_(9:45-10:30)",
-  "lect-3_(10:30-11:15)",
-  "lect-4_(11:15-12:00)",
-  "lect-5_(12:00-12:45)",
-  "lect-6_(12:45-1:30)",
-  "lect-7_(1:30-2:15)",
-  "lect-8_(2:15-3:00)",
-];
-
-// Normalize lecture slot format for display
-function formatLectureSlot(slot: string): string {
-  // Convert "lect-1_(9:00-9:45)" to "Lecture 1 (9:00-9:45)"
-  const match = slot.match(/lect-(\d+)_\((.+)\)/);
-  if (match) {
-    return `Lecture ${match[1]} (${match[2]})`;
-  }
-  return slot;
+interface Program {
+  id: string;
+  name: string;
 }
 
-const DAYS = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+function TimetableSessionCard({
+  entry,
+  scope,
+  mobile,
+}: {
+  entry: TimetableEntry;
+  scope: SessionScope;
+  mobile: boolean;
+}) {
+  const visual = getSessionVisual(scope);
+  const sizeClasses = mobile
+    ? {
+        card: "p-3",
+        title: "text-sm",
+        code: "text-xs px-2.5 py-1",
+        detail: "text-xs gap-1.5",
+        icon: "p-1 h-3 w-3",
+      }
+    : {
+        card: "p-2",
+        title: "text-xs",
+        code: "text-[10px] px-2 py-0.5",
+        detail: "text-[10px] gap-1",
+        icon: "p-0.5 h-2.5 w-2.5",
+      };
 
-function parseDayRange(dayRange: string | null): string[] {
-  if (!dayRange) return DAYS;
-  const match = dayRange.match(/\((\d+)-(\d+)\)/);
-  if (!match) return DAYS;
-  const start = Number.parseInt(match[1]);
-  const end = Number.parseInt(match[2]);
-  return DAYS.slice(start - 1, end);
+  return (
+    <div
+      className={`${visual.cardClassName} ${visual.borderClassName} ${sizeClasses.card} relative overflow-hidden rounded-xl border shadow-md transition-all duration-200 hover:scale-[1.02] hover:shadow-lg`}
+    >
+      <div
+        className={`absolute left-0 top-0 h-full w-1 ${visual.accentClassName}`}
+      />
+      <div className="space-y-1.5 pl-2">
+        <div className="space-y-1">
+          <div
+            className={`${sizeClasses.title} min-w-0 font-bold leading-tight text-slate-800`}
+          >
+            {entry.subject?.name
+              ? getDisplaySubjectName(entry.subject.name)
+              : "Unassigned class"}
+          </div>
+          {entry.subject?.code && (
+            <div
+              className={`${sizeClasses.code} ${visual.badgeClassName} inline-block rounded-md font-bold shadow-sm`}
+            >
+              {entry.subject.code}
+            </div>
+          )}
+        </div>
+        {entry.teacher && (
+          <div
+            className={`flex items-center ${sizeClasses.detail} font-medium text-slate-700`}
+          >
+            <div className={`${visual.iconClassName} rounded`}>
+              <User className={`${sizeClasses.icon} shrink-0 text-white`} />
+            </div>
+            <span className="truncate">{entry.teacher.name}</span>
+          </div>
+        )}
+        {entry.room && (
+          <div
+            className={`flex items-center ${sizeClasses.detail} font-medium text-slate-700`}
+          >
+            <div className={`${visual.iconClassName} rounded`}>
+              <MapPin className={`${sizeClasses.icon} shrink-0 text-white`} />
+            </div>
+            <span className="truncate">{entry.room.name}</span>
+          </div>
+        )}
+      </div>
+    </div>
+  );
 }
 
 export default function TimetablePage() {
@@ -68,19 +126,17 @@ export default function TimetablePage() {
 
     try {
       const html2canvas = (await import("html2canvas-pro")).default;
-
       const canvas = await html2canvas(timetableRef.current, {
         scale: 2,
         backgroundColor: "#ffffff",
         useCORS: true,
       });
-
       const link = document.createElement("a");
       link.download = `${program?.name || "timetable"}.png`;
       link.href = canvas.toDataURL("image/png");
       link.click();
-    } catch (err) {
-      console.error("Download failed:", err);
+    } catch (error) {
+      console.error("Download failed:", error);
       alert("Download failed. Please try again.");
     } finally {
       setIsDownloading(false);
@@ -90,21 +146,23 @@ export default function TimetablePage() {
   const { data: timetable, isLoading } = useQuery<TimetableEntry[]>({
     queryKey: ["timetable", programId],
     queryFn: async () => {
-      const res = await fetch(`/api/timetable/program/${programId}`);
-      if (!res.ok) throw new Error("Failed to fetch timetable");
-      return res.json();
+      const response = await fetch(`/api/timetable/program/${programId}`);
+      if (!response.ok) throw new Error("Failed to fetch timetable");
+      return response.json();
     },
   });
 
-  const { data: programs } = useQuery({
+  const { data: programs } = useQuery<Program[]>({
     queryKey: ["programs"],
     queryFn: async () => {
-      const res = await fetch("/api/timetable/programs");
-      return res.json();
+      const response = await fetch("/api/timetable/programs");
+      if (!response.ok) throw new Error("Failed to fetch programs");
+      return response.json();
     },
   });
 
-  const program = programs?.find((p: any) => p.id === programId);
+  const program = programs?.find((item) => item.id === programId);
+  const legendGroups = getLegendGroups(timetable ?? []);
 
   if (isLoading) {
     return (
@@ -120,12 +178,12 @@ export default function TimetablePage() {
   return (
     <div className="min-h-screen bg-slate-50">
       <Navbar />
-      <main className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8">
-        <div className="flex items-center justify-between mb-4">
+      <main className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
+        <div className="mb-4 flex items-center justify-between">
           <Link href="/">
             <Button
               variant="ghost"
-              className="hover:bg-blue-50 hover:text-blue-600 transition-colors"
+              className="transition-colors hover:bg-blue-50 hover:text-blue-600"
             >
               <ArrowLeft className="mr-2 h-4 w-4" />
               Back to Programs
@@ -134,38 +192,35 @@ export default function TimetablePage() {
           <Button
             onClick={handleDownloadPNG}
             disabled={isDownloading}
-            className="bg-blue-600 text-white hover:bg-blue-700 font-semibold shadow-lg"
+            className="bg-blue-600 font-semibold text-white shadow-lg hover:bg-blue-700"
           >
             {isDownloading ? (
               <Loader2 className="mr-2 h-4 w-4 animate-spin" />
             ) : (
-              <div className="flex items-center gap-1">
-                <Download className="mr-2 h-4 w-4" />
-                <span>Download PNG</span>
-              </div>
+              <Download className="mr-2 h-4 w-4" />
             )}
+            Download PNG
           </Button>
         </div>
 
-        {/* Content to be captured for download */}
         <div ref={timetableRef}>
-          <div className="mb-8">
-            <div className="bg-linear-to-r from-blue-700 via-blue-600 to-blue-500 text-white p-8 rounded-2xl shadow-xl">
-              <h1 className="text-4xl font-bold drop-shadow-md">
-                {program?.name || "Timetable"}
-              </h1>
-              <p className="text-blue-50 mt-2 text-base font-medium">
-                Weekly class schedule
-              </p>
-            </div>
+          <div className="mb-6 rounded-2xl bg-linear-to-r from-blue-700 via-blue-600 to-blue-500 p-8 text-white shadow-xl">
+            <h1 className="text-4xl font-bold drop-shadow-md">
+              {program?.name || "Timetable"}
+            </h1>
+            <p className="mt-2 text-base font-medium text-blue-50">
+              Weekly class schedule
+            </p>
           </div>
 
-          {/* Timetable Grid - Desktop */}
+          <div className="mb-4">
+            <GroupLegend groups={legendGroups} />
+          </div>
+
           <div className="hidden md:block">
-            <div className="rounded-2xl border border-slate-200/50 bg-white shadow-2xl overflow-hidden">
-              {/* Header with Days */}
+            <div className="overflow-hidden rounded-2xl border border-slate-200/50 bg-white shadow-2xl">
               <div className="grid grid-cols-7 border-b border-slate-200 bg-linear-to-r from-blue-700 via-blue-600 to-blue-500">
-                <div className="px-2 py-4 text-xs font-bold text-white border-r border-blue-400/30 flex items-center gap-1.5">
+                <div className="flex items-center gap-1.5 border-r border-blue-400/30 px-2 py-4 text-xs font-bold text-white">
                   <Clock className="h-4 w-4 shrink-0" />
                   <span className="hidden lg:inline">Time Slot</span>
                   <span className="lg:hidden">Time</span>
@@ -173,7 +228,7 @@ export default function TimetablePage() {
                 {DAYS.map((day, index) => (
                   <div
                     key={day}
-                    className={`px-2 py-4 text-center text-sm font-bold text-white border-r border-blue-400/30 last:border-r-0 ${
+                    className={`border-r border-blue-400/30 px-2 py-4 text-center text-sm font-bold text-white last:border-r-0 ${
                       index % 2 === 0 ? "bg-white/10" : ""
                     }`}
                   >
@@ -182,137 +237,47 @@ export default function TimetablePage() {
                 ))}
               </div>
 
-              {/* Time Slots */}
               {LECTURE_SLOTS.map((slot, slotIndex) => {
-                const formattedSlot = formatLectureSlot(slot);
                 const timeRange = slot.match(/\((.+)\)/)?.[1] || "";
-                const colors = [
-                  {
-                    bg: "bg-linear-to-br from-blue-50 to-blue-100",
-                    border: "border-blue-200",
-                    text: "text-slate-800",
-                    accent: "bg-blue-600",
-                  },
-                  {
-                    bg: "bg-linear-to-br from-blue-50 to-blue-100",
-                    border: "border-blue-200",
-                    text: "text-slate-800",
-                    accent: "bg-blue-600",
-                  },
-                  {
-                    bg: "bg-linear-to-br from-blue-50 to-blue-100",
-                    border: "border-blue-200",
-                    text: "text-slate-800",
-                    accent: "bg-blue-600",
-                  },
-                  {
-                    bg: "bg-linear-to-br from-blue-50 to-blue-100",
-                    border: "border-blue-200",
-                    text: "text-slate-800",
-                    accent: "bg-blue-600",
-                  },
-                  {
-                    bg: "bg-linear-to-br from-blue-50 to-blue-100",
-                    border: "border-blue-200",
-                    text: "text-slate-800",
-                    accent: "bg-blue-600",
-                  },
-                  {
-                    bg: "bg-linear-to-br from-blue-50 to-blue-100",
-                    border: "border-blue-200",
-                    text: "text-slate-800",
-                    accent: "bg-blue-600",
-                  },
-                  {
-                    bg: "bg-linear-to-br from-blue-50 to-blue-100",
-                    border: "border-blue-200",
-                    text: "text-slate-800",
-                    accent: "bg-blue-600",
-                  },
-                  {
-                    bg: "bg-linear-to-br from-blue-50 to-blue-100",
-                    border: "border-blue-200",
-                    text: "text-slate-800",
-                    accent: "bg-blue-600",
-                  },
-                ];
-
                 return (
                   <div
                     key={slot}
-                    className="grid grid-cols-7 border-b border-slate-200/80 last:border-b-0 min-h-[120px]"
+                    className="grid min-h-[120px] grid-cols-7 border-b border-slate-200/80 last:border-b-0"
                   >
-                    {/* Time Column */}
-                    <div className="px-2 py-4 border-r border-slate-200 bg-linear-to-br from-slate-50 to-blue-50/30 flex flex-col justify-center">
+                    <div className="flex flex-col justify-center border-r border-slate-200 bg-linear-to-br from-slate-50 to-blue-50/30 px-2 py-4">
                       <div className="text-xs font-bold text-slate-700">
                         Lec {slotIndex + 1}
                       </div>
-                      <div className="text-[10px] text-slate-500 mt-0.5 font-semibold">
+                      <div className="mt-0.5 text-[10px] font-semibold text-slate-500">
                         {timeRange}
                       </div>
                     </div>
-
-                    {/* Day Columns */}
                     {DAYS.map((day, dayIndex) => {
-                      const entry = timetable?.find((e) => {
-                        if (e.lectureSlot !== slot) return false;
-                        const entryDays = parseDayRange(e.dayRange);
-                        return entryDays.includes(day);
-                      });
-
+                      const sessions = getSlotDaySessions(
+                        timetable ?? [],
+                        slot,
+                        day,
+                      );
                       return (
                         <div
                           key={day}
-                          className={`px-2 py-4 border-r border-slate-200/50 last:border-r-0 transition-all duration-200 ${
+                          className={`border-r border-slate-200/50 px-2 py-4 last:border-r-0 ${
                             dayIndex % 2 === 0 ? "bg-slate-50/30" : "bg-white"
                           }`}
                         >
-                          {entry?.subject ? (
-                            <div
-                              className={`${
-                                colors[slotIndex % colors.length].bg
-                              } ${
-                                colors[slotIndex % colors.length].border
-                              } border rounded-xl p-2 h-full shadow-md hover:shadow-lg transition-all duration-200 hover:scale-[1.02] relative overflow-hidden`}
-                            >
-                              <div
-                                className={`absolute top-0 left-0 w-1 h-full ${
-                                  colors[slotIndex % colors.length].accent
-                                }`}
-                              />
-                              <div className="space-y-1.5 pl-2">
-                                <div>
-                                  <div className="text-xs font-bold text-slate-800 line-clamp-2 leading-tight">
-                                    {entry.subject.name}
-                                  </div>
-                                  <div className="text-[10px] font-bold text-white mt-1 px-2 py-0.5 bg-blue-600 rounded-md inline-block shadow-sm">
-                                    {entry.subject.code}
-                                  </div>
-                                </div>
-                                {entry.teacher && (
-                                  <div className="flex items-center gap-1 text-[10px] text-slate-700 font-medium">
-                                    <div className="bg-blue-600 p-0.5 rounded">
-                                      <User className="h-2.5 w-2.5 shrink-0 text-white" />
-                                    </div>
-                                    <span className="truncate">
-                                      {entry.teacher.name}
-                                    </span>
-                                  </div>
-                                )}
-                                {entry.room && (
-                                  <div className="flex items-center gap-1 text-[10px] text-slate-700 font-medium">
-                                    <div className="bg-blue-600 p-0.5 rounded">
-                                      <MapPin className="h-2.5 w-2.5 shrink-0 text-white" />
-                                    </div>
-                                    <span className="truncate">
-                                      {entry.room.name}
-                                    </span>
-                                  </div>
-                                )}
-                              </div>
+                          {sessions.length > 0 ? (
+                            <div className="space-y-2">
+                              {sessions.map(({ entry, scope }) => (
+                                <TimetableSessionCard
+                                  key={entry.id}
+                                  entry={entry}
+                                  scope={scope}
+                                  mobile={false}
+                                />
+                              ))}
                             </div>
                           ) : (
-                            <div className="flex items-center justify-center h-full text-slate-400 bg-slate-50/50 rounded-lg border border-dashed border-slate-300">
+                            <div className="flex h-full min-h-[88px] items-center justify-center rounded-lg border border-dashed border-slate-300 bg-slate-50/50 text-slate-400">
                               <span className="text-[10px] font-medium">
                                 No Class
                               </span>
@@ -327,19 +292,17 @@ export default function TimetablePage() {
             </div>
           </div>
 
-          {/* Timetable Grid - Mobile with horizontal scroll */}
-          <div className="md:hidden overflow-x-auto">
-            <div className="min-w-max rounded-2xl border border-slate-200/50 bg-white shadow-2xl overflow-hidden">
-              {/* Header with Days */}
+          <div className="overflow-x-auto md:hidden">
+            <div className="min-w-max overflow-hidden rounded-2xl border border-slate-200/50 bg-white shadow-2xl">
               <div className="grid grid-cols-[100px_repeat(6,200px)] border-b border-slate-200 bg-linear-to-r from-blue-700 via-blue-600 to-blue-500">
-                <div className="px-2 py-4 text-xs font-bold text-white border-r border-blue-400/30 flex items-center gap-1.5">
+                <div className="flex items-center gap-1.5 border-r border-blue-400/30 px-2 py-4 text-xs font-bold text-white">
                   <Clock className="h-4 w-4" />
                   Time Slot
                 </div>
                 {DAYS.map((day, index) => (
                   <div
                     key={day}
-                    className={`px-4 py-4 text-center text-sm font-bold text-white border-r border-blue-400/30 last:border-r-0 ${
+                    className={`border-r border-blue-400/30 px-4 py-4 text-center text-sm font-bold text-white last:border-r-0 ${
                       index % 2 === 0 ? "bg-white/10" : ""
                     }`}
                   >
@@ -348,89 +311,47 @@ export default function TimetablePage() {
                 ))}
               </div>
 
-              {/* Time Slots */}
               {LECTURE_SLOTS.map((slot, slotIndex) => {
-                const formattedSlot = formatLectureSlot(slot);
                 const timeRange = slot.match(/\((.+)\)/)?.[1] || "";
-                const colors = [
-                  {
-                    bg: "bg-linear-to-br from-blue-50 to-blue-100",
-                    border: "border-blue-200",
-                    text: "text-slate-800",
-                    accent: "bg-blue-600",
-                  },
-                ];
-
                 return (
                   <div
                     key={slot}
-                    className="grid grid-cols-[100px_repeat(6,200px)] border-b border-slate-200/80 last:border-b-0 min-h-[120px]"
+                    className="grid min-h-[120px] grid-cols-[100px_repeat(6,200px)] border-b border-slate-200/80 last:border-b-0"
                   >
-                    {/* Time Column */}
-                    <div className="px-2 py-4 border-r border-slate-200 bg-linear-to-br from-slate-50 to-blue-50/30 flex flex-col justify-center">
+                    <div className="flex flex-col justify-center border-r border-slate-200 bg-linear-to-br from-slate-50 to-blue-50/30 px-2 py-4">
                       <div className="text-xs font-bold text-slate-700">
                         Lec {slotIndex + 1}
                       </div>
-                      <div className="text-[10px] text-slate-500 mt-0.5 font-semibold">
+                      <div className="mt-0.5 text-[10px] font-semibold text-slate-500">
                         {timeRange}
                       </div>
                     </div>
-
-                    {/* Day Columns */}
                     {DAYS.map((day, dayIndex) => {
-                      const entry = timetable?.find((e) => {
-                        if (e.lectureSlot !== slot) return false;
-                        const entryDays = parseDayRange(e.dayRange);
-                        return entryDays.includes(day);
-                      });
-
+                      const sessions = getSlotDaySessions(
+                        timetable ?? [],
+                        slot,
+                        day,
+                      );
                       return (
                         <div
                           key={day}
-                          className={`px-3 py-4 border-r border-slate-200/50 last:border-r-0 transition-all duration-200 ${
+                          className={`border-r border-slate-200/50 px-3 py-4 last:border-r-0 ${
                             dayIndex % 2 === 0 ? "bg-slate-50/30" : "bg-white"
                           }`}
                         >
-                          {entry?.subject ? (
-                            <div
-                              className={`${colors[0].bg} ${colors[0].border} border rounded-xl p-3 h-full shadow-md hover:shadow-lg transition-all duration-200 hover:scale-[1.02] relative overflow-hidden`}
-                            >
-                              <div
-                                className={`absolute top-0 left-0 w-1 h-full ${colors[0].accent}`}
-                              />
-                              <div className="space-y-2 pl-2">
-                                <div>
-                                  <div className="text-sm font-bold text-slate-800 line-clamp-2 leading-tight">
-                                    {entry.subject.name}
-                                  </div>
-                                  <div className="text-xs font-bold text-white mt-1.5 px-2.5 py-1 bg-blue-600 rounded-md inline-block shadow-sm">
-                                    {entry.subject.code}
-                                  </div>
-                                </div>
-                                {entry.teacher && (
-                                  <div className="flex items-center gap-1.5 text-xs text-slate-700 font-medium">
-                                    <div className="bg-blue-600 p-1 rounded">
-                                      <User className="h-3 w-3 shrink-0 text-white" />
-                                    </div>
-                                    <span className="truncate">
-                                      {entry.teacher.name}
-                                    </span>
-                                  </div>
-                                )}
-                                {entry.room && (
-                                  <div className="flex items-center gap-1.5 text-xs text-slate-700 font-medium">
-                                    <div className="bg-blue-600 p-1 rounded">
-                                      <MapPin className="h-3 w-3 shrink-0 text-white" />
-                                    </div>
-                                    <span className="truncate">
-                                      {entry.room.name}
-                                    </span>
-                                  </div>
-                                )}
-                              </div>
+                          {sessions.length > 0 ? (
+                            <div className="space-y-2">
+                              {sessions.map(({ entry, scope }) => (
+                                <TimetableSessionCard
+                                  key={entry.id}
+                                  entry={entry}
+                                  scope={scope}
+                                  mobile
+                                />
+                              ))}
                             </div>
                           ) : (
-                            <div className="flex items-center justify-center h-full text-slate-400 bg-slate-50/50 rounded-lg border border-dashed border-slate-300">
+                            <div className="flex h-full min-h-[88px] items-center justify-center rounded-lg border border-dashed border-slate-300 bg-slate-50/50 text-slate-400">
                               <span className="text-xs font-medium">
                                 No Class
                               </span>
