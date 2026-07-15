@@ -63,7 +63,9 @@ The database has Better Auth tables (`user`, `session`, `account`, and
   entities.
 - `timetableEntry` references a required program and optional subject, teacher,
   and room. Its relationships are UUID-based; preserve the schema's cascade and
-  set-null behavior when editing it.
+  set-null behavior when editing it. `subjectLabel` stores the original
+  per-entry subject text from timetable source data; use it before the shared
+  `subject.name` when rendering or resolving group-specific colors.
 - `visitorStats` maintains rows for `total` and the current ISO date
   (`YYYY-MM-DD`) used by the visitor counter.
 
@@ -73,8 +75,9 @@ contiguous slice of Monday through Saturday. Preserve both formats across the
 schema, seed data, route APIs, filtering, and rendering.
 
 `output.json` is the seed input. `src/lib/db/seed.ts` splits slash-delimited
-subjects, teachers, rooms, and day ranges into related timetable entries; keep
-this import behavior in mind before changing source-data conventions.
+subjects, teachers, rooms, and day ranges into related timetable entries. The
+shared `subject` table remains keyed by unique code, while timetable-entry
+labels preserve split subject text such as `G1(4-6)` and `G2(4-6)`.
 
 ## API, security, and data-safety rules
 
@@ -89,9 +92,10 @@ this import behavior in mind before changing source-data conventions.
   affect navigation visibility and are not access control.
 - Keep credentials in ignored environment files. `DATABASE_URL` is required for
   database access; never commit, echo, or log credentials or other secrets.
-- `bun run db:push`, `bun run seed`, and especially `bun run delete` mutate the
-  configured database. Confirm the intended environment and get explicit
-  approval before running them. The truncate script also deletes auth data.
+- `bun run db:push`, `bun run seed`, `bun run backfill:subject-labels`, and
+  especially `bun run delete` mutate the configured database. Confirm the
+  intended environment and get explicit approval before running them. The
+  truncate script also deletes auth data.
 
 ## Cross-view consistency
 

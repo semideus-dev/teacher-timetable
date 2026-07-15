@@ -82,7 +82,7 @@
         {
           "feild_name": "subject",
           "lect-1_(9:00-9:45)": "Web Designing & Development",
-          "lect-8_(2:15-3:00)": "web lab/INTERNSHIP"
+          "lect-8_(2:15-3:00)": "Web lab/INTERNSHIP"
         },
         {
           "feild_name": "Code",
@@ -136,7 +136,7 @@
           "feild_name": "Teacher",
           "lect-1_(9:00-9:45)": "TARANDEEP SAINI/YUVIKA",
           "lect-2_(9:45-10:30)": "DR DALJIT KAUR",
-          "lect-3_(10:30-11:15)": "ENGT/ PBIT",
+          "lect-3_(10:30-11:15)": "MANMEET SODHI/ PBIT",
           "lect-4_(11:15-12:00)": "HEENA",
           "lect-5_(12:00-12:45)": "VAISHALI GUPTA",
           "lect-7_(1:30-2:15)": "HARSH"
@@ -145,7 +145,7 @@
           "feild_name": "Room",
           "lect-1_(9:00-9:45)": "LAB-SD",
           "lect-2_(9:45-10:30)": "R-42",
-          "lect-3_(10:30-11:15)": "NR-4",
+          "lect-3_(10:30-11:15)": "NR-3",
           "lect-4_(11:15-12:00)": "R-42",
           "lect-5_(12:00-12:45)": "LAB-SD",
           "lect-7_(1:30-2:15)": "R-42"
@@ -426,15 +426,15 @@
         {
           "feild_name": "Teacher",
           "lect-2_(9:45-10:30)": "RAJAT KAUR",
-          "lect-3_(10:30-11:15)": "PBIT/ ENGT",
+          "lect-3_(10:30-11:15)": "PBIT/ SATPAL",
           "lect-4_(11:15-12:00)": "ANJALI",
           "lect-5_(12:00-12:45)": "MONICA"
         },
         {
           "feild_name": "Room",
-          "lect-2_(9:45-10:30)": "R-NR1",
+          "lect-2_(9:45-10:30)": "LAB-MEDIA",
           "lect-3_(10:30-11:15)": "R-40",
-          "lect-4_(11:15-12:00)": "R-NR1/ LAB- MEDIA",
+          "lect-4_(11:15-12:00)": "LAB- MEDIA",
           "lect-5_(12:00-12:45)": "R-NR1"
         },
         {
@@ -603,10 +603,10 @@
           "lect-2_(9:45-10:30)": "Computer Architecture",
           "lect-3_(10:30-11:15)": "Data Structures & File Processing",
           "lect-4_(11:15-12:00)": "Information Systems (MDC-5)",
-          "lect-5_(12:00-12:45)": "Lab-2 based on Cybersecurity Fundamentals (SEC-2 Practical ) G1(1-3)/Lab-2 based on Cybersecurity Fundamentals (SEC-2 Practical )G2(4-6)",
-          "lect-6_(12:45-1:30)": "Cybersecurity Fundamentals (SEC-2 Theory) / LAB BASED ON DATA STRUCTURES G1 / LAB BASED ON DATA STRUCTURES G2",
+          "lect-5_(12:00-12:45)": "Lab-2 based on Cybersecurity Fundamentals (SEC-2 Practical ) G1(1-3),G2(4-6)",
+          "lect-6_(12:45-1:30)": "Cybersecurity Fundamentals (SEC-2 Theory) / LAB BASED ON DATA STRUCTURES G1(4-6)/LAB BASED ON DATA STRUCTURES G2(4-6)",
           "lect-7_(1:30-2:15)": "Operating Systems",
-          "lect-8_(2:15-3:00)": "Internship with local public/private industry/ business /organization Field\nPractice – 3"
+          "lect-8_(2:15-3:00)": "Internship G1(1-3),G2(4-6)"
         },
         {
           "feild_name": "Code",
@@ -614,7 +614,7 @@
           "lect-3_(10:30-11:15)": "BCA-301",
           "lect-4_(11:15-12:00)": "BCA-305",
           "lect-5_(12:00-12:45)": "BCA-304L",
-          "lect-6_(12:45-1:30)": "BCA-304/ BCA-301L(G1)/BCA-301L(G2)",
+          "lect-6_(12:45-1:30)": "BCA-304/ BCA-301L/BCA-301L",
           "lect-7_(1:30-2:15)": "BCA-303",
           "lect-8_(2:15-3:00)": "BCA-306"
         },
@@ -646,7 +646,7 @@
           "lect-5_(12:00-12:45)": "(1-3)/(4-6)",
           "lect-6_(12:45-1:30)": "(1-3)/(4-6)/(4-6)",
           "lect-7_(1:30-2:15)": "(1-6)",
-          "lect-8_(2:15-3:00)": "(1-6)"
+          "lect-8_(2:15-3:00)": "(1-3)/(4-6)"
         }
       ],
       "entries_count": 5
@@ -664,8 +664,8 @@
           "lect-3_(10:30-11:15)": "Comm Skills/ Punjabi",
           "lect-4_(11:15-12:00)": "Applied & Discrete Mathematics",
           "lect-5_(12:00-12:45)": "Introduction to Programming using Python",
-          "lect-6_(12:45-1:30)": "Introduction to the Internet (SEC-1)THEORY/ Introduction to the Internet (SEC-1)\nLAB G2",
-          "lect-7_(1:30-2:15)": "\nIntroduction to the Internet (SEC-1) LAB",
+          "lect-6_(12:45-1:30)": "Introduction to the Internet (SEC-1)THEORY/ Introduction to the Internet (SEC-1)\nLAB G2(4-6)",
+          "lect-7_(1:30-2:15)": "\nIntroduction to the Internet (SEC-1) LAB G1(1-3)",
           "lect-8_(2:15-3:00)": "Lab-2 based on Introduction to Programming using Python G1(1-3),G2(4-6) / LAB BASED ON COMPUTER FUNDAMENTALS G2(1-3),G1(4-6)"
         },
         {
@@ -681,7 +681,7 @@
         {
           "feild_name": "Teacher",
           "lect-2_(9:45-10:30)": "SANDEEP BASSI",
-          "lect-3_(10:30-11:15)": "ENGT/ PBIT",
+          "lect-3_(10:30-11:15)": "SATPAL/ PBIT",
           "lect-4_(11:15-12:00)": "DR SANDEEP SINGH",
           "lect-5_(12:00-12:45)": "JASDEEP SINGH",
           "lect-6_(12:45-1:30)": "SEJAL AGGARWAL/TARANDEEP SAINI",
@@ -721,13 +721,13 @@
         {
           "feild_name": "subject",
           "lect-1_(9:00-9:45)": "Ethical Hacking (MDC-6)",
-          "lect-2_(9:45-10:30)": "LAB-I BASED ON COMPUTER GRAPHICS G2,G1/LAB BASED ON ETHICAL HACKING G1, G2",
+          "lect-2_(9:45-10:30)": "LAB-I BASED ON COMPUTER GRAPHICS G2(1-3),G1(4-6)/LAB BASED ON ETHICAL HACKING G1(1-3), G2(4-6)",
           "lect-3_(10:30-11:15)": "SOFTWARE ENGINEERING",
-          "lect-4_(11:15-12:00)": "LAB BASED ON Web Designing & Development G1, G2/ LAB BASED ON SERVER SIDE PROGRAMMING G2, G1",
+          "lect-4_(11:15-12:00)": "LAB BASED ON Web Designing & Development G1(1-3), G2(4-6)/ LAB BASED ON SERVER SIDE PROGRAMMING G2(1-3), G1(4-6)",
           "lect-5_(12:00-12:45)": "Computer Graphics",
           "lect-6_(12:45-1:30)": "Web Designing & Development",
-          "lect-7_(1:30-2:15)": "Server-side Programming (SEC-3 tHEORYl)",
-          "lect-8_(2:15-3:00)": "INTERNSHIP"
+          "lect-7_(1:30-2:15)": "Server-side Programming (SEC-3 Theory)",
+          "lect-8_(2:15-3:00)": "Internship G1(1-3),G2(4-6)"
         },
         {
           "feild_name": "Code",
@@ -771,7 +771,7 @@
           "lect-5_(12:00-12:45)": "(1-6)",
           "lect-6_(12:45-1:30)": "(1-6)",
           "lect-7_(1:30-2:15)": "(4-6)",
-          "lect-8_(2:15-3:00)": "G1(1-3)/ G2(4-6)"
+          "lect-8_(2:15-3:00)": "(1-3)/(4-6)"
         }
       ],
       "entries_count": 5
@@ -895,7 +895,7 @@
           "feild_name": "Teacher",
           "lect-1_(9:00-9:45)": "SONIA",
           "lect-2_(9:45-10:30)": "SONALI BERI",
-          "lect-3_(10:30-11:15)": "PBIT/ ENGT",
+          "lect-3_(10:30-11:15)": "PBIT/ SATPAL",
           "lect-4_(11:15-12:00)": "SEJAL AGGARWAL",
           "lect-5_(12:00-12:45)": "SONIA",
           "lect-6_(12:45-1:30)": "TARANDEEP SAINI"
@@ -1095,7 +1095,7 @@
           "feild_name": "Teacher",
           "lect-1_(9:00-9:45)": "RAVINDER KAUR",
           "lect-2_(9:45-10:30)": "DR MS LEHAL",
-          "lect-3_(10:30-11:15)": "ENGT/ PBIT",
+          "lect-3_(10:30-11:15)": "MANMEET SODHI/ PBIT",
           "lect-5_(12:00-12:45)": "SK ANAND",
           "lect-6_(12:45-1:30)": "JASDEEP SINGH/SIMPY KATARIA",
           "lect-7_(1:30-2:15)": "KARITIKA/ SANDEEP BASSI"
@@ -1104,7 +1104,7 @@
           "feild_name": "Room",
           "lect-1_(9:00-9:45)": "NR-4",
           "lect-2_(9:45-10:30)": "NR-4",
-          "lect-3_(10:30-11:15)": "NR-4",
+          "lect-3_(10:30-11:15)": "NR-3",
           "lect-5_(12:00-12:45)": "NR-4",
           "lect-6_(12:45-1:30)": "LAB-SD/LAB-VIII",
           "lect-7_(1:30-2:15)": "NR-4/LAB-SD"
@@ -1150,7 +1150,7 @@
           "feild_name": "Teacher",
           "lect-1_(9:00-9:45)": "RAVINDER KAUR",
           "lect-2_(9:45-10:30)": "DR MS LEHAL",
-          "lect-3_(10:30-11:15)": "ENGT/ PBIT",
+          "lect-3_(10:30-11:15)": "MANMEET SODHI/ PBIT",
           "lect-4_(11:15-12:00)": "YUVIKA/ HARSH",
           "lect-5_(12:00-12:45)": "SK ANAND",
           "lect-7_(1:30-2:15)": "KARITIKA/ RATNAKAR"
@@ -1159,7 +1159,7 @@
           "feild_name": "Room",
           "lect-1_(9:00-9:45)": "NR-4",
           "lect-2_(9:45-10:30)": "NR-4",
-          "lect-3_(10:30-11:15)": "NR-4",
+          "lect-3_(10:30-11:15)": "NR-3",
           "lect-4_(11:15-12:00)": "LAB-II/ LAB-II",
           "lect-5_(12:00-12:45)": "NR-4",
           "lect-7_(1:30-2:15)": "NR-4/ LAB-II"
@@ -1192,7 +1192,7 @@
           "lect-5_(12:00-12:45)": "Lab-1 based on Data Structures & File Processing",
           "lect-6_(12:45-1:30)": "CYBERSECURITY FUNDAMENTALS",
           "lect-7_(1:30-2:15)": "Data Structures & File Processing",
-          "lect-8_(2:15-3:00)": "Internship with local public/private industry/ business /organization Field Practice – 3"
+          "lect-8_(2:15-3:00)": "Internship"
         },
         {
           "feild_name": "Code",
@@ -1208,7 +1208,7 @@
         {
           "feild_name": "Teacher",
           "lect-1_(9:00-9:45)": "SEJAL AGGARWAL",
-          "lect-2_(9:45-10:30)": "HARSH",
+          "lect-2_(9:45-10:30)": "SEJAL",
           "lect-3_(10:30-11:15)": "SIMPY KATARIA",
           "lect-4_(11:15-12:00)": "MS BHATIA",
           "lect-5_(12:00-12:45)": "HEENA",
@@ -1256,7 +1256,7 @@
           "lect-5_(12:00-12:45)": "Server-side Programming (SEC-3 Theory)/ WEB DESIGN LAB",
           "lect-6_(12:45-1:30)": "LAB BASED ON SERVER SIDE PROGRAMMING/ Lab based on Software Engineering & DevOps",
           "lect-7_(1:30-2:15)": "Information Security (MDC-6)",
-          "lect-8_(2:15-3:00)": "Internship with local public/private industry/ business /organization Field Practice –4"
+          "lect-8_(2:15-3:00)": "Internship"
         },
         {
           "feild_name": "Code",

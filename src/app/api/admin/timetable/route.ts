@@ -1,7 +1,12 @@
-import { db } from "@/lib/db";
-import { timetableEntry, subject } from "@/lib/db/schema";
-import { NextResponse } from "next/server";
 import { eq } from "drizzle-orm";
+import { NextResponse } from "next/server";
+import { db } from "@/lib/db";
+import { subject, timetableEntry } from "@/lib/db/schema";
+import { getDisplaySubjectName } from "@/modules/timetable/utils/group-schedule";
+
+type TimetableEntryUpdate = Partial<typeof timetableEntry.$inferInsert> & {
+  updatedAt: Date;
+};
 
 export async function POST(request: Request) {
   try {
@@ -19,11 +24,15 @@ export async function POST(request: Request) {
     if (!programId || !lectureSlot) {
       return NextResponse.json(
         { error: "Program ID and lecture slot are required" },
-        { status: 400 }
+        { status: 400 },
       );
     }
 
     let subjectId = null;
+    const subjectLabel =
+      typeof subjectName === "string" && subjectName.trim()
+        ? subjectName.trim()
+        : null;
 
     // Create or find subject if provided
     if (subjectName && subjectCode) {
@@ -38,7 +47,10 @@ export async function POST(request: Request) {
       } else {
         const [newSubject] = await db
           .insert(subject)
-          .values({ name: subjectName, code: subjectCode })
+          .values({
+            name: getDisplaySubjectName(subjectName) || subjectName,
+            code: subjectCode,
+          })
           .returning();
         subjectId = newSubject.id;
       }
@@ -49,6 +61,7 @@ export async function POST(request: Request) {
       .values({
         programId,
         subjectId,
+        subjectLabel,
         teacherId: teacherId || null,
         roomId: roomId || null,
         lectureSlot,
@@ -61,7 +74,7 @@ export async function POST(request: Request) {
     console.error("Error creating timetable entry:", error);
     return NextResponse.json(
       { error: "Failed to create timetable entry" },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }
@@ -74,11 +87,15 @@ export async function PUT(request: Request) {
     if (!id) {
       return NextResponse.json(
         { error: "Entry ID is required" },
-        { status: 400 }
+        { status: 400 },
       );
     }
 
     let subjectId = null;
+    const subjectLabel =
+      typeof subjectName === "string" && subjectName.trim()
+        ? subjectName.trim()
+        : null;
 
     // Create or find subject if provided
     if (subjectName && subjectCode) {
@@ -89,30 +106,29 @@ export async function PUT(request: Request) {
         .limit(1);
 
       if (existingSubject) {
-        // Update existing subject name if it changed
-        if (existingSubject.name !== subjectName) {
-          await db
-            .update(subject)
-            .set({ name: subjectName, updatedAt: new Date() })
-            .where(eq(subject.id, existingSubject.id));
-        }
         subjectId = existingSubject.id;
       } else {
         const [newSubject] = await db
           .insert(subject)
-          .values({ name: subjectName, code: subjectCode })
+          .values({
+            name: getDisplaySubjectName(subjectName) || subjectName,
+            code: subjectCode,
+          })
           .returning();
         subjectId = newSubject.id;
       }
     }
 
-    const updateData: any = {
+    const updateData: TimetableEntryUpdate = {
       updatedAt: new Date(),
     };
 
     // Only update fields that are provided
     if (subjectId !== null) {
       updateData.subjectId = subjectId;
+    }
+    if (subjectName !== undefined) {
+      updateData.subjectLabel = subjectLabel;
     }
     if (teacherId !== undefined) {
       updateData.teacherId = teacherId || null;
@@ -135,7 +151,7 @@ export async function PUT(request: Request) {
     console.error("Error updating timetable entry:", error);
     return NextResponse.json(
       { error: "Failed to update timetable entry" },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }
@@ -148,17 +164,17 @@ export async function DELETE(request: Request) {
     if (!id) {
       return NextResponse.json(
         { error: "Entry ID is required" },
-        { status: 400 }
+        { status: 400 },
       );
     }
 
     await db.delete(timetableEntry).where(eq(timetableEntry.id, id));
 
     return NextResponse.json({ success: true });
-  } catch (error) {
+  } catch (_error) {
     return NextResponse.json(
       { error: "Failed to delete timetable entry" },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }

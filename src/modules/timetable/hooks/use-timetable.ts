@@ -35,6 +35,7 @@ export interface TimetableEntry {
   id: string;
   lectureSlot: string;
   dayRange: string | null;
+  subjectLabel: string | null;
   program: {
     id: string;
     name: string;

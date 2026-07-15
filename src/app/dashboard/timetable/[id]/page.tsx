@@ -12,6 +12,7 @@ import {
 } from "@/modules/timetable/ui/group-schedule";
 import {
   getDisplaySubjectName,
+  getEntrySubjectName,
   getLegendGroups,
   LECTURE_SLOTS,
 } from "@/modules/timetable/utils/group-schedule";
@@ -20,6 +21,7 @@ interface TimetableEntry {
   id: string;
   lectureSlot: string;
   dayRange: string | null;
+  subjectLabel: string | null;
   subject: { id: string; name: string; code: string } | null;
   teacher: { id: string; name: string } | null;
   room: { id: string; name: string } | null;
@@ -150,8 +152,10 @@ export default function DashboardTimetablePage() {
                       </td>
                     )}
                     <td className="px-4 py-4 text-sm text-slate-900">
-                      {entry.subject?.name
-                        ? getDisplaySubjectName(entry.subject.name)
+                      {getEntrySubjectName(entry)
+                        ? getDisplaySubjectName(
+                            getEntrySubjectName(entry) ?? "",
+                          )
                         : "Unassigned class"}
                     </td>
                     <td className="px-4 py-4 text-sm text-slate-600">
@@ -194,8 +198,10 @@ export default function DashboardTimetablePage() {
                   >
                     <div className="mb-3 space-y-1">
                       <p className="text-sm font-medium text-slate-900">
-                        {entry.subject?.name
-                          ? getDisplaySubjectName(entry.subject.name)
+                        {getEntrySubjectName(entry)
+                          ? getDisplaySubjectName(
+                              getEntrySubjectName(entry) ?? "",
+                            )
                           : "Unassigned class"}
                       </p>
                       <p className="text-xs text-slate-600">

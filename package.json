@@ -11,6 +11,7 @@
     "format": "biome format --write",
     "db:push": "drizzle-kit push",
     "db:studio": "drizzle-kit studio",
+    "backfill:subject-labels": "tsx src/lib/db/backfill-subject-labels.ts",
     "seed": "tsx src/lib/db/seed.ts",
     "delete": "tsx src/lib/db/truncate.ts"
   },

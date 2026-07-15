@@ -18,6 +18,7 @@ import { GroupLegend } from "@/modules/timetable/ui/group-schedule";
 import {
   DAYS,
   getDisplaySubjectName,
+  getEntrySubjectName,
   getLegendGroups,
   getSessionVisual,
   getSlotDaySessions,
@@ -29,6 +30,7 @@ interface TimetableEntry {
   id: string;
   lectureSlot: string;
   dayRange: string | null;
+  subjectLabel: string | null;
   subject: { id: string; name: string; code: string } | null;
   teacher: { id: string; name: string } | null;
   room: { id: string; name: string } | null;
@@ -49,6 +51,7 @@ function TimetableSessionCard({
   mobile: boolean;
 }) {
   const visual = getSessionVisual(scope);
+  const subjectName = getEntrySubjectName(entry);
   const sizeClasses = mobile
     ? {
         card: "p-3",
@@ -77,8 +80,8 @@ function TimetableSessionCard({
           <div
             className={`${sizeClasses.title} min-w-0 font-bold leading-tight text-slate-800`}
           >
-            {entry.subject?.name
-              ? getDisplaySubjectName(entry.subject.name)
+            {subjectName
+              ? getDisplaySubjectName(subjectName)
               : "Unassigned class"}
           </div>
           {entry.subject?.code && (

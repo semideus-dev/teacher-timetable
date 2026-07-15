@@ -1,7 +1,8 @@
 import "dotenv/config";
-import { db } from "./index";
-import { program, teacher, room, subject, timetableEntry } from "./schema";
+import { getDisplaySubjectName } from "@/modules/timetable/utils/group-schedule";
 import inputData from "../../../output.json";
+import { db } from "./index";
+import { program, room, subject, teacher, timetableEntry } from "./schema";
 
 interface OtherUniqueRow {
   feild_name: string;
@@ -57,7 +58,7 @@ async function seed() {
     const uniqueTeachers = new Set<string>();
     for (const prog of programs) {
       const teacherRows = prog.other_unique_rows.filter(
-        (row) => row.feild_name === "Teacher"
+        (row) => row.feild_name === "Teacher",
       );
       for (const row of teacherRows) {
         for (const slot of lectureSlots) {
@@ -90,7 +91,7 @@ async function seed() {
     const uniqueRooms = new Set<string>();
     for (const prog of programs) {
       const roomRows = prog.other_unique_rows.filter(
-        (row) => row.feild_name === "Room"
+        (row) => row.feild_name === "Room",
       );
       for (const row of roomRows) {
         for (const slot of lectureSlots) {
@@ -123,10 +124,10 @@ async function seed() {
     const uniqueSubjects = new Map<string, string>(); // code -> name
     for (const prog of programs) {
       const subjectRows = prog.other_unique_rows.filter(
-        (row) => row.feild_name === "subject"
+        (row) => row.feild_name === "subject",
       );
       const codeRows = prog.other_unique_rows.filter(
-        (row) => row.feild_name === "Code"
+        (row) => row.feild_name === "Code",
       );
 
       // Process each subject row with corresponding code row
@@ -152,7 +153,7 @@ async function seed() {
               const code = subjectCodes[j]?.trim();
               const name = subjectNames[j]?.trim() || subjectNames[0]?.trim();
               if (code && name) {
-                uniqueSubjects.set(code, name);
+                uniqueSubjects.set(code, getDisplaySubjectName(name) || name);
               }
             }
           }
@@ -182,19 +183,19 @@ async function seed() {
 
       // Get all row types
       const subjectRows = prog.other_unique_rows.filter(
-        (row) => row.feild_name === "subject"
+        (row) => row.feild_name === "subject",
       );
       const codeRows = prog.other_unique_rows.filter(
-        (row) => row.feild_name === "Code"
+        (row) => row.feild_name === "Code",
       );
       const teacherRows = prog.other_unique_rows.filter(
-        (row) => row.feild_name === "Teacher"
+        (row) => row.feild_name === "Teacher",
       );
       const roomRows = prog.other_unique_rows.filter(
-        (row) => row.feild_name === "Room"
+        (row) => row.feild_name === "Room",
       );
       const dayRows = prog.other_unique_rows.filter(
-        (row) => row.feild_name === "Day"
+        (row) => row.feild_name === "Day",
       );
 
       // Process each set of rows (each set represents alternative schedules)
@@ -203,7 +204,7 @@ async function seed() {
         codeRows.length,
         teacherRows.length,
         roomRows.length,
-        dayRows.length
+        dayRows.length,
       );
 
       for (let setIndex = 0; setIndex < maxSets; setIndex++) {
@@ -227,6 +228,9 @@ async function seed() {
           if (!subjectName && !subjectCode) continue;
 
           // Handle multiple entries (separated by /)
+          const subjectNames = subjectName?.split("/").map((s) => s.trim()) || [
+            null,
+          ];
           const subjectCodes = subjectCode?.split("/").map((s) => s.trim()) || [
             null,
           ];
@@ -241,10 +245,11 @@ async function seed() {
             subjectCodes.length,
             teacherNames.length,
             roomNames.length,
-            dayRanges.length
+            dayRanges.length,
           );
 
           for (let i = 0; i < maxLength; i++) {
+            const entrySubjectName = subjectNames[i] || subjectNames[0];
             const code = subjectCodes[i] || subjectCodes[0];
             const tName = teacherNames[i] || teacherNames[0];
             const rName = roomNames[i] || roomNames[0];
@@ -260,6 +265,7 @@ async function seed() {
             await db.insert(timetableEntry).values({
               programId,
               subjectId: subjectId || null,
+              subjectLabel: entrySubjectName || null,
               teacherId: teacherId || null,
               roomId: roomId || null,
               lectureSlot: slot,
@@ -273,7 +279,7 @@ async function seed() {
       }
 
       console.log(
-        `  ✓ ${prog.program_name}: ${programEntries} entries inserted`
+        `  ✓ ${prog.program_name}: ${programEntries} entries inserted`,
       );
     }
 

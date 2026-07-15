@@ -167,6 +167,43 @@ test("keeps a shared G1 and G2 entry as one combined session", () => {
   );
 });
 
+test("uses per-entry labels when same-code labs have different groups", () => {
+  const entries = [
+    {
+      id: "data-structures-g1",
+      lectureSlot: "lect-6_(12:45-1:30)",
+      dayRange: "(4-6)",
+      subjectLabel: "LAB BASED ON DATA STRUCTURES G1(4-6)",
+      subject: { name: "LAB BASED ON DATA STRUCTURES" },
+    },
+    {
+      id: "data-structures-g2",
+      lectureSlot: "lect-6_(12:45-1:30)",
+      dayRange: "(4-6)",
+      subjectLabel: "LAB BASED ON DATA STRUCTURES G2(4-6)",
+      subject: { name: "LAB BASED ON DATA STRUCTURES" },
+    },
+  ];
+
+  assert.deepEqual(
+    getSlotDaySessions(entries, "lect-6_(12:45-1:30)", "Mon"),
+    [],
+  );
+  assert.deepEqual(
+    getSlotDaySessions(entries, "lect-6_(12:45-1:30)", "Thu").map(
+      ({ entry, scope }) => [entry.id, scope],
+    ),
+    [
+      ["data-structures-g1", { kind: "group", group: "G1" }],
+      ["data-structures-g2", { kind: "group", group: "G2" }],
+    ],
+  );
+  assert.equal(
+    getDisplaySubjectName(entries[0]?.subjectLabel ?? ""),
+    "LAB BASED ON DATA STRUCTURES",
+  );
+});
+
 test("returns both concurrent group classes and swaps their scopes by day", () => {
   const entries = [
     {

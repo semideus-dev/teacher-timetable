@@ -26,6 +26,7 @@ import {
 } from "@/modules/timetable/ui/group-schedule";
 import {
   getDisplaySubjectName,
+  getEntrySubjectName,
   getLegendGroups,
   LECTURE_SLOTS,
 } from "@/modules/timetable/utils/group-schedule";
@@ -52,6 +53,7 @@ interface FilteredTimetableEntry {
   id: string;
   lectureSlot: string;
   dayRange: string | null;
+  subjectLabel?: string | null;
   program?: { id: string; name: string } | null;
   subject?: { id: string; name: string; code: string } | null;
   teacher?: { id: string; name: string } | null;
@@ -325,9 +327,9 @@ export default function Home() {
                                     {/* Empty cell for alignment */}
                                   </td>
                                   <td className="px-3 py-3 text-sm font-semibold text-slate-900">
-                                    {entry?.subject?.name
+                                    {getEntrySubjectName(entry)
                                       ? getDisplaySubjectName(
-                                          entry.subject.name,
+                                          getEntrySubjectName(entry) ?? "",
                                         )
                                       : "-"}
                                   </td>
@@ -396,9 +398,9 @@ export default function Home() {
                               <div className="space-y-3">
                                 <div className="bg-slate-50 rounded-lg p-3 border border-slate-200">
                                   <p className="text-sm font-bold text-slate-800">
-                                    {entry.subject?.name
+                                    {getEntrySubjectName(entry)
                                       ? getDisplaySubjectName(
-                                          entry.subject.name,
+                                          getEntrySubjectName(entry) ?? "",
                                         )
                                       : "Unassigned class"}
                                   </p>

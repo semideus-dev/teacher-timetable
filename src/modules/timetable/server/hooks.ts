@@ -1,12 +1,12 @@
+import { eq } from "drizzle-orm";
 import { db } from "@/lib/db";
 import {
   program,
-  teacher,
   room,
   subject,
+  teacher,
   timetableEntry,
 } from "@/lib/db/schema";
-import { eq } from "drizzle-orm";
 
 export async function getAllPrograms() {
   return await db.select().from(program).orderBy(program.name);
@@ -30,6 +30,7 @@ export async function getTimetableEntries() {
       id: timetableEntry.id,
       lectureSlot: timetableEntry.lectureSlot,
       dayRange: timetableEntry.dayRange,
+      subjectLabel: timetableEntry.subjectLabel,
       program: {
         id: program.id,
         name: program.name,
@@ -61,6 +62,7 @@ export async function getTimetableByProgram(programId: string) {
       id: timetableEntry.id,
       lectureSlot: timetableEntry.lectureSlot,
       dayRange: timetableEntry.dayRange,
+      subjectLabel: timetableEntry.subjectLabel,
       subject: {
         id: subject.id,
         name: subject.name,
@@ -88,6 +90,7 @@ export async function getTimetableByTeacher(teacherId: string) {
       id: timetableEntry.id,
       lectureSlot: timetableEntry.lectureSlot,
       dayRange: timetableEntry.dayRange,
+      subjectLabel: timetableEntry.subjectLabel,
       program: {
         id: program.id,
         name: program.name,
@@ -116,6 +119,7 @@ export async function getTimetableByRoom(roomId: string) {
       id: timetableEntry.id,
       lectureSlot: timetableEntry.lectureSlot,
       dayRange: timetableEntry.dayRange,
+      subjectLabel: timetableEntry.subjectLabel,
       program: {
         id: program.id,
         name: program.name,

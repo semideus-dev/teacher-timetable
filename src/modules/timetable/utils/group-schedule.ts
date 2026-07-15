@@ -23,6 +23,7 @@ export interface TimetableEntryLike {
   id: string;
   lectureSlot: string;
   dayRange: string | null;
+  subjectLabel?: string | null;
   subject?: { name: string } | null;
 }
 
@@ -87,6 +88,10 @@ function getVisibleGroups(
   return groups;
 }
 
+export function getEntrySubjectName(entry: TimetableEntryLike): string | null {
+  return entry.subjectLabel?.trim() || entry.subject?.name || null;
+}
+
 /**
  * Group labels are schedule metadata. Keep them available to the resolver,
  * but omit them from the public-facing course name.
@@ -139,7 +144,8 @@ export function getEntryScopeForDay(
 
   if (scheduleAssignments.length === 0) return null;
 
-  const visibleGroups = getVisibleGroups(entry.subject?.name);
+  const subjectName = getEntrySubjectName(entry);
+  const visibleGroups = getVisibleGroups(subjectName);
   if (visibleGroups.size === 0) return { kind: "combined", group: null };
 
   const scheduleGroups = new Set(
@@ -155,7 +161,7 @@ export function getEntryScopeForDay(
       : [...scheduleGroups][0];
 
   const titleGroupsForDay = new Set(
-    getExplicitGroupAssignments(entry.subject?.name ?? null)
+    getExplicitGroupAssignments(subjectName)
       .filter((assignment) => assignment.day === day)
       .map((assignment) => assignment.group)
       .filter((group): group is GroupId => group !== null),

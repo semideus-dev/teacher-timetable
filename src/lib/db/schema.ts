@@ -1,11 +1,11 @@
 import {
   boolean,
+  integer,
   pgEnum,
   pgTable,
   text,
   timestamp,
   uuid,
-  integer,
 } from "drizzle-orm/pg-core";
 
 export const role = pgEnum("role", ["USER", "ADMIN"]);
@@ -136,6 +136,7 @@ export const timetableEntry = pgTable("timetable_entry", {
   roomId: uuid("room_id").references(() => room.id, { onDelete: "set null" }),
   lectureSlot: text("lecture_slot").notNull(), // e.g., "lect-1_(9:00-9:45)"
   dayRange: text("day_range"), // e.g., "(1-6)" or "(1-3)"
+  subjectLabel: text("subject_label"),
   createdAt: timestamp("created_at")
     .$defaultFn(() => new Date())
     .notNull(),
