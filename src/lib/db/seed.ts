@@ -26,6 +26,64 @@ const lectureSlots = [
   "lect-8_(2:15-3:00)",
 ] as const;
 
+function expandGroupedLabels(
+  names: (string | null)[],
+  codes: (string | null)[],
+  ranges: (string | null)[],
+): { names: (string | null)[]; codes: (string | null)[]; dayRanges: (string | null)[] } {
+  const resultNames: (string | null)[] = [];
+  const resultCodes: (string | null)[] = [];
+  const resultRanges: (string | null)[] = [];
+
+  const groupPattern = /\b(G\d+)\((\d+-\d+)\)/gi;
+
+  for (let i = 0; i < names.length; i++) {
+    const name = names[i];
+    const code = codes[i] ?? codes[0] ?? null;
+    const range = ranges[i] ?? ranges[0] ?? null;
+
+    if (!name) {
+      resultNames.push(null);
+      resultCodes.push(code);
+      resultRanges.push(range);
+      continue;
+    }
+
+    const groups: Array<{ text: string; dayRange: string }> = [];
+    const pattern = new RegExp(groupPattern.source, "gi");
+    let match: RegExpExecArray | null;
+
+    while ((match = pattern.exec(name)) !== null) {
+      groups.push({ text: match[0], dayRange: `(${match[2]})` });
+    }
+
+    if (groups.length < 2) {
+      resultNames.push(name);
+      resultCodes.push(code);
+      resultRanges.push(range);
+      continue;
+    }
+
+    let baseName = name;
+    for (const g of groups) {
+      baseName = baseName.replace(g.text, "");
+    }
+    baseName = baseName
+      .replace(/\s*,\s*/g, " ")
+      .replace(/\s{2,}/g, " ")
+      .replace(/[\s,;/]+$/g, "")
+      .trim();
+
+    for (const g of groups) {
+      resultNames.push(`${baseName} ${g.text}`);
+      resultCodes.push(code);
+      resultRanges.push(g.dayRange);
+    }
+  }
+
+  return { names: resultNames, codes: resultCodes, dayRanges: resultRanges };
+}
+
 async function seed() {
   console.log("🌱 Starting database seeding...");
 
@@ -228,17 +286,24 @@ async function seed() {
           if (!subjectName && !subjectCode) continue;
 
           // Handle multiple entries (separated by /)
-          const subjectNames = subjectName?.split("/").map((s) => s.trim()) || [
-            null,
-          ];
-          const subjectCodes = subjectCode?.split("/").map((s) => s.trim()) || [
-            null,
-          ];
-          const teacherNames = teacherName?.split("/").map((s) => s.trim()) || [
-            null,
-          ];
+          const rawSubjectNames = subjectName
+            ?.split("/")
+            .map((s) => s.trim()) || [null];
+          const rawSubjectCodes = subjectCode
+            ?.split("/")
+            .map((s) => s.trim()) || [null];
+          const teacherNames = teacherName
+            ?.split("/")
+            .map((s) => s.trim()) || [null];
           const roomNames = roomName?.split("/").map((s) => s.trim()) || [null];
-          const dayRanges = dayRange?.split("/").map((s) => s.trim()) || [null];
+          const rawDayRanges = dayRange
+            ?.split("/")
+            .map((s) => s.trim()) || [null];
+
+          // Expand multi-group subject labels (e.g., "G3(1-3), G4(1-3)")
+          // into separate entries that pair 1:1 with teacher/room/day parts
+          const { names: subjectNames, codes: subjectCodes, dayRanges } =
+            expandGroupedLabels(rawSubjectNames, rawSubjectCodes, rawDayRanges);
 
           // Create entries for each combination
           const maxLength = Math.max(
